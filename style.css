@@ -6,14 +6,14 @@ body {
 }
 
 header, footer {
-  background-color: #FF00FF;
+  background-color: #e0218a; /* Цвет Барби */
   color: white;
   padding: 10px;
   text-align: center;
 }
 
 a {
-  color: #FF00FF;
+  color: #e0218a;
   text-decoration: none;
 }
 
@@ -36,11 +36,34 @@ a:hover {
 
 .search-bar button {
   padding: 8px 15px;
-  background-color: #FF00FF;
+  background-color: #e0218a;
   color: white;
   border: none;
   border-radius: 4px;
   margin-left: 5px;
+}
+
+#suggestions {
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+  width: 70%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 999;
+}
+
+#suggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions li:hover {
+  background-color: #ffe6f4;
 }
 
 .slider {
@@ -74,7 +97,7 @@ a:hover {
   background: none;
   border: none;
   font-size: 20px;
-  color: #FF00FF;
+  color: #e0218a;
   cursor: pointer;
 }
 
