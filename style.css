@@ -1,19 +1,32 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #fff0fb;
+  background-color: #fff6fb;
   color: #333;
 }
 
 header, footer {
-  background-color: #e0218a; /* Цвет Барби */
+  background-color: #e75480; /* Barbie стиль */
   color: white;
   padding: 10px;
   text-align: center;
 }
 
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.logo .makc {
+  color: #fff;
+}
+
+.logo .market {
+  color: #ffb6c1;
+}
+
 a {
-  color: #e0218a;
+  color: #e75480;
   text-decoration: none;
 }
 
@@ -36,45 +49,34 @@ a:hover {
 
 .search-bar button {
   padding: 8px 15px;
-  background-color: #e0218a;
+  background-color: #e75480;
   color: white;
   border: none;
   border-radius: 4px;
   margin-left: 5px;
-}
-
-#suggestions {
-  list-style: none;
-  padding: 0;
-  margin-top: 5px;
-  width: 70%;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  max-height: 150px;
-  overflow-y: auto;
-  position: absolute;
-  z-index: 999;
-}
-
-#suggestions li {
-  padding: 8px;
   cursor: pointer;
 }
 
-#suggestions li:hover {
-  background-color: #ffe6f4;
+.search-bar #clearSearch {
+  background: none;
+  color: #e75480;
+  font-size: 18px;
 }
 
 .slider {
   width: 100%;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .slider img {
   width: 100%;
   height: auto;
+  display: none;
+  border-radius: 8px;
+}
+
+.slider img.active {
   display: block;
 }
 
@@ -97,7 +99,7 @@ a:hover {
   background: none;
   border: none;
   font-size: 20px;
-  color: #e0218a;
+  color: #e75480;
   cursor: pointer;
 }
 
@@ -106,6 +108,37 @@ a:hover {
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 15px;
   padding: 10px;
+}
+
+.burger-menu {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#menu {
+  background-color: #fff0f5;
+  padding: 10px;
+}
+
+#suggestions {
+  list-style: none;
+  padding: 0 10px;
+  margin-top: -10px;
+}
+
+#suggestions li {
+  background: #fff;
+  border: 1px solid #e75480;
+  padding: 5px 10px;
+  margin-top: 2px;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
