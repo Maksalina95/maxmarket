@@ -1,28 +1,63 @@
-<!DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Магазин Максалины</title>
+
+  <!-- СТИЛИ -->
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icons/icon-192.png" type="image/png">
+
+  <!-- ШРИФТ -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1 class="logo"><span class="makc">МАКС</span><span class="market">Маркет</span></h1>
+    <h1 class="logo">🛍 МаксМаркет</h1>
+
     <div class="search-bar">
       <input type="text" id="searchInput" placeholder="Поиск...">
       <button id="applySearchBtn">Найти</button>
-      <button id="clearSearch">✕</button>
+      <button id="clearSearch">×</button>
     </div>
+
     <button class="burger-menu" id="burgerBtn">☰</button>
   </header>
-  <nav id="menu" class="hidden"></nav>  <section class="slider" id="slider">
-    <img src="assets/slider1.jpg" alt="Реклама 1">
-    <img src="assets/slider2.jpg" alt="Реклама 2">
-  </section>  <main>
+
+  <!-- МЕНЮ -->
+  <nav id="menu" class="hidden">
+    <ul>
+      <li><a href="catalog.html">Категории</a></li>
+      <li><a href="favorites.html">Избранное</a></li>
+      <li><a href="delivery.html">Доставка</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+      <li><a href="rules.html">Условия</a></li>
+      <li><a href="adress.html">Адрес</a></li>
+      <li><button onclick="location.reload()">🔄 Обновить сайт</button></li>
+    </ul>
+  </nav>
+
+  <!-- СЛАЙДЕР -->
+  <section class="slider">
+    <img src="assets/slider1.jpg" class="slide" alt="Реклама 1">
+    <img src="assets/slider2.jpg" class="slide" alt="Реклама 2">
+  </section>
+
+  <!-- СПИСОК ПОДСКАЗОК -->
+  <ul id="suggestions"></ul>
+
+  <main>
     <h2>Новинки</h2>
-    <ul id="suggestions"></ul>
-    <div id="productList"></div>
-  </main>  <script src="scripts/config.js"></script>  <script src="scripts/app.js"></script>  <script src="scripts/menu.js"></script>  <script src="scripts/search.js"></script>  <script src="scripts/slider.js"></script></body>
+    <div id="productList" class="product-list"></div>
+  </main>
+
+  <!-- СКРИПТЫ -->
+  <script src="scripts/config.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/menu.js"></script>
+  <script src="scripts/search.js"></script>
+  <script src="scripts/slider.js"></script>
+</body>
 </html>
