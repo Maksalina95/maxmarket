@@ -1,32 +1,26 @@
-const cacheName = 'maksalina-cache-v1';
-const assets = [
-  '/',
-  '/index.html',
-  '/catalog.html',
-  '/product.html',
-  '/favorites.html',
-  '/style.css',
-  '/scripts/app.js',
-  '/scripts/search.js',
-  '/scripts/menu.js',
-  '/scripts/favorites.js',
-  '/scripts/config.js',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png'
-];
-
-self.addEventListener('install', (e) => {
+self.addEventListener('install', function (e) {
   e.waitUntil(
-    caches.open(cacheName).then((cache) => {
-      return cache.addAll(assets);
+    caches.open('maksalina-store').then(function (cache) {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/catalog.html',
+        '/product.html',
+        '/style.css',
+        '/scripts/app.js',
+        '/scripts/menu.js',
+        '/scripts/search.js',
+        '/scripts/favorites.js',
+        '/scripts/config.js'
+      ]);
     })
   );
 });
 
-self.addEventListener('fetch', (e) => {
+self.addEventListener('fetch', function (e) {
   e.respondWith(
-    caches.match(e.request).then((res) => {
-      return res || fetch(e.request);
+    caches.match(e.request).then(function (response) {
+      return response || fetch(e.request);
     })
   );
 });
