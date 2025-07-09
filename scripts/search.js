@@ -1,57 +1,65 @@
+const searchInput = document.getElementById('searchInput');
+const applyBtn = document.getElementById('applySearchBtn');
+const clearBtn = document.getElementById('clearSearch');
+const suggestions = document.getElementById('suggestions');
 let allProducts = [];
 
-async function loadAllProductNames() {
-  const res = await fetch(`${baseUrl}/products`);
-  allProducts = await res.json();
+function renderProducts(products) {
+  const list = document.getElementById("productList");
+  list.innerHTML = "";
+  products.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.innerHTML = `
+      <img src="${p.фото}" alt="${p.название}">
+      <h3>${p.название}</h3>
+      <p>${p.описание || ""}</p>
+      <p><strong>${p.цена} ₽</strong></p>
+      <a href="https://wa.me/798376280080" target="_blank">WhatsApp</a>
+      <button class="fav-btn" data-fav-id="${p.id}" onclick="toggleFavorite('${p.id}')">☆</button>
+    `;
+    list.appendChild(card);
+  });
 }
 
-function showSuggestions(query) {
-  const suggestionsEl = document.getElementById('suggestions');
-  suggestionsEl.innerHTML = '';
-  const suggestions = allProducts.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
-  suggestions.slice(0, 5).forEach(p => {
-    const li = document.createElement('li');
-    li.textContent = p.name;
+function filterSuggestions(query) {
+  const matches = allProducts.filter(p => p.название.toLowerCase().includes(query.toLowerCase()));
+  suggestions.innerHTML = "";
+  matches.slice(0, 5).forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = p.название;
     li.onclick = () => {
-      document.getElementById('searchInput').value = p.name;
-      applySearch(p.name);
+      searchInput.value = p.название;
+      suggestions.innerHTML = "";
     };
-    suggestionsEl.appendChild(li);
+    suggestions.appendChild(li);
   });
 }
 
-function applySearch(name) {
-  const container = document.getElementById('productList');
-  if (!container || allProducts.length === 0) return;
-  container.innerHTML = '';
-  const results = allProducts.filter(p => p.name.toLowerCase().includes(name.toLowerCase()));
-  results.forEach(p => {
-    const card = createProductCard(p);
-    container.appendChild(card);
-  });
-}
-
-function clearSearch() {
-  document.getElementById('searchInput').value = '';
-  document.getElementById('suggestions').innerHTML = '';
-  const container = document.getElementById('productList');
-  if (container) renderProducts(container);
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadAllProductNames();
-
-  const input = document.getElementById('searchInput');
-  input.addEventListener('input', () => {
-    const query = input.value.trim();
-    if (query) showSuggestions(query);
-    else clearSearch();
-  });
-
-  document.getElementById('applySearchBtn').addEventListener('click', () => {
-    const query = input.value.trim();
-    if (query) applySearch(query);
-  });
-
-  document.getElementById('clearSearch').addEventListener('click', clearSearch);
+searchInput.addEventListener("input", e => {
+  const query = e.target.value;
+  if (query.length > 0) {
+    filterSuggestions(query);
+  } else {
+    suggestions.innerHTML = "";
+  }
 });
+
+applyBtn.addEventListener("click", () => {
+  const query = searchInput.value.toLowerCase();
+  const result = allProducts.filter(p => p.название.toLowerCase().includes(query));
+  renderProducts(result);
+});
+
+clearBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  suggestions.innerHTML = "";
+  renderProducts(allProducts); // вернуть всё
+});
+
+fetch(`${baseUrl}/Товары`)
+  .then(res => res.json())
+  .then(data => {
+    allProducts = data.reverse(); // новинки сверху
+    renderProducts(allProducts);
+  });
