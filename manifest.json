@@ -4,8 +4,8 @@
   "description": "Онлайн-магазин с товарами по категориям",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#FF00FF",
-  "theme_color": "#FF00FF",
+  "background_color": "#ffe4f2",
+  "theme_color": "#ff69b4",
   "orientation": "portrait",
   "icons": [
     {
