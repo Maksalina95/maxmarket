@@ -1,34 +1,35 @@
-async function fetchProducts() {
-  const res = await fetch(`${baseUrl}/products`);
-  return await res.json();
-}
+document.addEventListener("DOMContentLoaded", () => {
+  fetch(`${baseUrl}/Товары`)
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("productList");
+      if (!container) return;
 
-function createProductCard(p) {
-  const card = document.createElement('div');
-  card.className = 'product-card';
+      const items = data.reverse(); // Последние сверху
+      items.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${p.фото}" alt="${p.название}">
+          <h3>${p.название}</h3>
+          <p>${p.описание || ""}</p>
+          <p><strong>${p.цена} ₽</strong></p>
+          <a href="https://wa.me/798376280080" target="_blank">WhatsApp</a>
+          <button class="fav-btn" data-fav-id="${p.id}" onclick="toggleFavorite('${p.id}')">☆</button>
+        `;
+        container.appendChild(card);
+      });
+    });
 
-  card.innerHTML = `
-    <img src="${p.photo}" alt="${p.name}" />
-    <h3>${p.name}</h3>
-    <p>${p.description || ''}</p>
-    <p><strong>${p.price} ₽</strong></p>
-    <button class="fav-btn" data-fav-id="${p.id}" onclick="toggleFavorite('${p.id}')">☆</button>
-    <a href="https://wa.me/89376280080" class="whatsapp-btn" target="_blank">WhatsApp</a>
-    <a href="product.html?id=${p.id}" class="details-btn">Подробнее</a>
-  `;
-  return card;
-}
-
-async function renderProducts(container) {
-  const products = await fetchProducts();
-  container.innerHTML = '';
-  products.reverse().forEach(p => {
-    const card = createProductCard(p);
-    container.appendChild(card);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const productList = document.getElementById('productList');
-  if (productList) renderProducts(productList);
+  // Автослайдер
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+  if (slides.length) {
+    slides[currentSlide].classList.add("active");
+    setInterval(() => {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }, 5000); // 5 сек
+  }
 });
