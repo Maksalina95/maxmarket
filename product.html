@@ -1,12 +1,36 @@
-<!DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Товар - Максалина</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Товар — МаксМаркет</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
 </head>
-<body onload="renderProductPage()">
+<body>
   <header>
-    <button onclick="history.back()">← Назад</button>
-  </header>  <main id="productDetails"></main>  <script src="scripts/config.js"></script>  <script src="scripts/app.js"></script></body>
+    <h1 class="logo">МАКС Маркет</h1>
+    <button class="burger-menu" id="burgerBtn">☰</button>
+  </header>
+
+  <nav id="menu" class="hidden">
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="favorites.html">Избранное</a></li>
+      <li><a href="catalog.html">Каталог</a></li>
+      <li><a href="delivery.html">Доставка</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+      <li><a href="rules.html">Условия</a></li>
+      <li><a href="adress.html">Адрес</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div id="productDetails" class="product-card"></div>
+  </main>
+
+  <script src="scripts/config.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/menu.js"></script>
+</body>
 </html>
