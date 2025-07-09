@@ -1,37 +1,34 @@
 async function fetchProducts() {
-  try {
-    const response = await fetch(`${baseUrl}/products`);
-    return await response.json();
-  } catch (e) {
-    console.error('Ошибка загрузки товаров:', e);
-    return [];
-  }
+  const res = await fetch(`${baseUrl}/products`);
+  return await res.json();
 }
 
 function createProductCard(p) {
-  return `
-    <div class="product-card">
-      <img src="${p.photo}" alt="${p.title}">
-      <h3>${p.title}</h3>
-      <p>${p.price} ₽</p>
-      <p>${p.description || ''}</p>
-      <a href="https://wa.me/79376280080" target="_blank">Связаться</a>
-      <button class="fav-btn" data-fav-id="${p.id}" onclick="toggleFavorite('${p.id}')">☆</button>
-    </div>
+  const card = document.createElement('div');
+  card.className = 'product-card';
+
+  card.innerHTML = `
+    <img src="${p.photo}" alt="${p.name}" />
+    <h3>${p.name}</h3>
+    <p>${p.description || ''}</p>
+    <p><strong>${p.price} ₽</strong></p>
+    <button class="fav-btn" data-fav-id="${p.id}" onclick="toggleFavorite('${p.id}')">☆</button>
+    <a href="https://wa.me/89376280080" class="whatsapp-btn" target="_blank">WhatsApp</a>
+    <a href="product.html?id=${p.id}" class="details-btn">Подробнее</a>
   `;
+  return card;
 }
 
-async function renderProductList(container) {
+async function renderProducts(container) {
   const products = await fetchProducts();
-  container.innerHTML = products.map(createProductCard).join('');
+  container.innerHTML = '';
+  products.reverse().forEach(p => {
+    const card = createProductCard(p);
+    container.appendChild(card);
+  });
 }
 
-function toggleFavorite(id) {
-  let favs = JSON.parse(localStorage.getItem('favorites') || '[]');
-  if (favs.includes(id)) {
-    favs = favs.filter(f => f !== id);
-  } else {
-    favs.push(id);
-  }
-  localStorage.setItem('favorites', JSON.stringify(favs));
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const productList = document.getElementById('productList');
+  if (productList) renderProducts(productList);
+});
