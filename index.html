@@ -5,28 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Магазин Максалины</title>
 
-  <!-- СТИЛИ -->
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  
+  <!-- Стили -->
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icons/icon-192.png" type="image/png">
-
-  <!-- ШРИФТ -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1 class="logo">🛍 МаксМаркет</h1>
-
+    <h1 class="logo">МАКС Маркет</h1>
+    
     <div class="search-bar">
       <input type="text" id="searchInput" placeholder="Поиск...">
       <button id="applySearchBtn">Найти</button>
-      <button id="clearSearch">×</button>
+      <button id="clearSearch">✕</button>
+      <button onclick="location.reload()">Обновить</button>
     </div>
+    
+    <ul id="suggestions"></ul>
 
     <button class="burger-menu" id="burgerBtn">☰</button>
   </header>
 
-  <!-- МЕНЮ -->
   <nav id="menu" class="hidden">
     <ul>
       <li><a href="catalog.html">Категории</a></li>
@@ -39,21 +41,17 @@
     </ul>
   </nav>
 
-  <!-- СЛАЙДЕР -->
   <section class="slider">
-    <img src="assets/slider1.jpg" class="slide" alt="Реклама 1">
-    <img src="assets/slider2.jpg" class="slide" alt="Реклама 2">
+    <img class="slide active" src="assets/slider1.jpg" alt="Слайд 1">
+    <img class="slide" src="assets/slider2.jpg" alt="Слайд 2">
   </section>
-
-  <!-- СПИСОК ПОДСКАЗОК -->
-  <ul id="suggestions"></ul>
 
   <main>
     <h2>Новинки</h2>
     <div id="productList" class="product-list"></div>
   </main>
 
-  <!-- СКРИПТЫ -->
+  <!-- Скрипты -->
   <script src="scripts/config.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/menu.js"></script>
