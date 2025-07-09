@@ -1,37 +1,66 @@
+/* Подключён шрифт Playfair Display для логотипа */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #fff6fb;
+  background-color: #fff0fb;
   color: #333;
 }
 
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #D62D91; /* Барби цвет */
+}
+
 header, footer {
-  background-color: #e75480; /* Barbie стиль */
+  background-color: #D62D91;
   color: white;
   padding: 10px;
   text-align: center;
 }
 
-.logo {
-  font-size: 26px;
-  font-weight: bold;
-}
-
-.logo .makc {
-  color: #fff;
-}
-
-.logo .market {
-  color: #ffb6c1;
-}
-
 a {
-  color: #e75480;
+  color: #D62D91;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+.burger-menu {
+  background-color: #D62D91;
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav.hidden {
+  display: none;
+}
+
+nav ul li a,
+nav ul li button {
+  background: #fff;
+  color: #D62D91;
+  padding: 10px 15px;
+  border: 1px solid #D62D91;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
 }
 
 .search-bar {
@@ -49,35 +78,34 @@ a:hover {
 
 .search-bar button {
   padding: 8px 15px;
-  background-color: #e75480;
+  background-color: #D62D91;
   color: white;
   border: none;
   border-radius: 4px;
   margin-left: 5px;
-  cursor: pointer;
-}
-
-.search-bar #clearSearch {
-  background: none;
-  color: #e75480;
-  font-size: 18px;
 }
 
 .slider {
   width: 100%;
   overflow: hidden;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .slider img {
   width: 100%;
   height: auto;
   display: none;
-  border-radius: 8px;
 }
 
 .slider img.active {
   display: block;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  padding: 10px;
 }
 
 .product-card {
@@ -95,49 +123,11 @@ a:hover {
   border-radius: 8px;
 }
 
-.product-card .fav-btn {
+.fav-btn {
   background: none;
   border: none;
   font-size: 20px;
-  color: #e75480;
-  cursor: pointer;
-}
-
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 15px;
-  padding: 10px;
-}
-
-.burger-menu {
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.hidden {
-  display: none;
-}
-
-#menu {
-  background-color: #fff0f5;
-  padding: 10px;
-}
-
-#suggestions {
-  list-style: none;
-  padding: 0 10px;
-  margin-top: -10px;
-}
-
-#suggestions li {
-  background: #fff;
-  border: 1px solid #e75480;
-  padding: 5px 10px;
-  margin-top: 2px;
+  color: #D62D91;
   cursor: pointer;
 }
 
