@@ -1,66 +1,26 @@
-/* Подключён шрифт Playfair Display для логотипа */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #fff0fb;
+  font-family: 'Pacifico', cursive;
+  background-color: #ffe4f2;
   color: #333;
 }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  color: #D62D91; /* Барби цвет */
-}
-
 header, footer {
-  background-color: #D62D91;
+  background-color: #ff69b4;
   color: white;
   padding: 10px;
   text-align: center;
 }
 
 a {
-  color: #D62D91;
+  color: #ff69b4;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-}
-
-.burger-menu {
-  background-color: #D62D91;
-  color: white;
-  border: none;
-  font-size: 24px;
-  padding: 8px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 10px;
-}
-
-nav li {
-  margin-bottom: 10px;
-}
-
-nav.hidden {
-  display: none;
-}
-
-nav ul li a,
-nav ul li button {
-  background: #fff;
-  color: #D62D91;
-  padding: 10px 15px;
-  border: 1px solid #D62D91;
-  border-radius: 5px;
-  display: block;
-  text-align: center;
 }
 
 .search-bar {
@@ -78,7 +38,7 @@ nav ul li button {
 
 .search-bar button {
   padding: 8px 15px;
-  background-color: #D62D91;
+  background-color: #ff69b4;
   color: white;
   border: none;
   border-radius: 4px;
@@ -94,11 +54,42 @@ nav ul li button {
 .slider img {
   width: 100%;
   height: auto;
-  display: none;
+  display: block;
 }
 
-.slider img.active {
-  display: block;
+.product-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px;
+  background: white;
+  box-shadow: 0 0 10px #ffcce6;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-card .fav-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #ff69b4;
+  cursor: pointer;
+}
+
+.whatsapp-btn,
+.details-btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: #ff69b4;
+  color: white;
+  text-decoration: none;
 }
 
 .product-list {
@@ -108,27 +99,24 @@ nav ul li button {
   padding: 10px;
 }
 
-.product-card {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 8px;
+ul#suggestions {
+  list-style: none;
+  padding: 0;
   margin: 10px;
   background: white;
-  box-shadow: 0 0 10px #ffe6fb;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 500px;
+  margin: auto;
 }
 
-.product-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.fav-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: #D62D91;
+ul#suggestions li {
+  padding: 6px;
   cursor: pointer;
+}
+
+ul#suggestions li:hover {
+  background: #ffe4f2;
 }
 
 @media (max-width: 768px) {
