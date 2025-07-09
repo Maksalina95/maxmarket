@@ -2,20 +2,36 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Избранное — Магазин Максалины</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Избранное — МаксМаркет</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192.png" type="image/png" />
 </head>
 <body onload="renderFavoritesPage(document.getElementById('productList'))">
   <header>
-    <h1>Избранные товары</h1>
-    <a href="index.html">← Назад</a>
+    <h1 class="logo">МАКС Маркет</h1>
+    <button class="burger-menu" id="burgerBtn">☰</button>
   </header>
+
+  <nav id="menu" class="hidden">
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="catalog.html">Каталог</a></li>
+      <li><a href="delivery.html">Доставка</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+      <li><a href="rules.html">Условия</a></li>
+      <li><a href="adress.html">Адрес</a></li>
+    </ul>
+  </nav>
+
   <main>
+    <h2>Избранные товары</h2>
     <div id="productList" class="product-list"></div>
   </main>
+
   <script src="scripts/config.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/favorites.js"></script>
+  <script src="scripts/menu.js"></script>
 </body>
 </html>
