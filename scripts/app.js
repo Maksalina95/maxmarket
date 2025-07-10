@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch(`${baseUrl}/Товары`)
+  fetch(`${baseUrl}/Лист1`) // если твой лист называется "Лист1"
     .then(res => res.json())
     .then(data => {
       const container = document.getElementById("productList");
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const favBtn = document.createElement("button");
         favBtn.className = "fav-btn";
-        favBtn.innerHTML = isFavorite ? "★" : "☆";
+        favBtn.innerHTML = isFavorite ? "❤️" : "🤍";
         favBtn.onclick = () => toggleFavorite(p.id, favBtn);
         card.appendChild(favBtn);
 
@@ -54,10 +54,10 @@ function toggleFavorite(id, button) {
   let favorites = getFavorites();
   if (favorites.includes(id)) {
     favorites = favorites.filter(favId => favId !== id);
-    button.innerHTML = "☆";
+    button.innerHTML = "🤍"; // не добавлено
   } else {
     favorites.push(id);
-    button.innerHTML = "★";
+    button.innerHTML = "❤️"; // добавлено
   }
   localStorage.setItem("favorites", JSON.stringify(favorites));
 }
