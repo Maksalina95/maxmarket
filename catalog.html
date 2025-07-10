@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Каталог — МаксМаркет</title>
+  <title>МАКС Маркет</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" type="image/png" />
 </head>
 <body>
   <header>
@@ -16,6 +17,7 @@
   <nav id="menu" class="hidden">
     <ul>
       <li><a href="index.html">Главная</a></li>
+      <li><a href="catalog.html">Каталог</a></li>
       <li><a href="favorites.html">Избранное</a></li>
       <li><a href="delivery.html">Доставка</a></li>
       <li><a href="contacts.html">Контакты</a></li>
@@ -25,22 +27,29 @@
     </ul>
   </nav>
 
+  <!-- Поиск -->
+  <section class="search-container">
+    <input type="text" id="searchInput" placeholder="Найти товар..." />
+    <button id="applySearchBtn">Найти</button>
+    <button id="clearSearch">✕</button>
+    <ul id="suggestions"></ul>
+  </section>
+
+  <!-- Слайдер -->
+  <section class="slider">
+    <img class="slide active" src="assets/slide1.jpg" alt="Акция 1" />
+    <img class="slide" src="assets/slide2.jpg" alt="Акция 2" />
+  </section>
+
+  <!-- Новинки -->
   <main>
-    <h2>Каталог</h2>
-
-    <div class="filter-bar">
-      <label>Бренд: <input type="text" id="brandFilter" /></label>
-      <label>Страна: <input type="text" id="countryFilter" /></label>
-      <label>Цена от: <input type="number" id="minPriceFilter" /></label>
-      <label>до: <input type="number" id="maxPriceFilter" /></label>
-      <button onclick="applyFilters()">Фильтровать</button>
-    </div>
-
+    <h2>Новинки</h2>
     <div id="productList" class="product-list"></div>
   </main>
 
   <script src="scripts/config.js"></script>
   <script src="scripts/app.js"></script>
+  <script src="scripts/search.js"></script>
   <script src="scripts/menu.js"></script>
 </body>
 </html>
