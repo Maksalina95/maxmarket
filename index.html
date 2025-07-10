@@ -10,11 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- Шапка -->
   <header>
     <h1 class="logo">МаксМаркет</h1>
     <button class="burger-menu" id="burgerBtn" aria-label="Открыть меню">Меню ☰</button>
   </header>
 
+  <!-- Меню -->
   <nav id="menu" class="hidden" role="navigation" aria-label="Главное меню">
     <ul>
       <li><a href="catalog.html">Категории</a></li>
@@ -27,11 +29,11 @@
     </ul>
   </nav>
 
-  <!-- Поисковая строка -->
+  <!-- Поисковая строка с ✕ внутри -->
   <div class="search-bar">
     <form onsubmit="return false;" class="search-form">
       <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" aria-label="Поиск" />
-      <button type="button" id="clearSearch" aria-label="Очистить">✕</button>
+      <span id="clearSearch">✕</span>
       <button type="submit" id="applySearchBtn" aria-label="Поиск">Поиск</button>
     </form>
   </div>
@@ -49,11 +51,13 @@
     <div id="productList" class="product-list"></div>
   </main>
 
+  <!-- Скрипты -->
   <script src="scripts/config.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/search.js"></script>
   <script src="scripts/menu.js"></script>
 
+  <!-- Логика кнопки ✕ и Поиска -->
   <script>
     const input = document.getElementById("searchInput");
     const clearBtn = document.getElementById("clearSearch");
@@ -66,7 +70,11 @@
     clearBtn.addEventListener("click", () => {
       input.value = "";
       clearBtn.style.display = "none";
-      document.getElementById("productList").innerHTML = ""; // сбросить результаты
+      document.getElementById("productList").innerHTML = "";
+      // показать все товары заново:
+      if (typeof renderProducts === "function" && Array.isArray(allProducts)) {
+        renderProducts(allProducts);
+      }
     });
 
     searchBtn.addEventListener("click", () => {
@@ -77,7 +85,6 @@
     });
 
     function performSearch(query) {
-      // Тут можно вызвать свою функцию из search.js
       const event = new CustomEvent("search", { detail: query });
       window.dispatchEvent(event);
     }
