@@ -1,81 +1,260 @@
-.hidden {
-  display: none;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff0f6;
+  color: #4B004B;
 }
 
+/* Шапка с flex для лого и кнопки */
+header {
+  background-color: #E0218A;
+  color: white;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Логотип курсивный и меньше */
+.logo {
+  font-family: 'Lobster', cursive;
+  font-size: 20px;  /* 20% меньше, чем было 24 */
+  margin: 0;
+  color: #fff5fa;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Кнопка меню справа сверху */
+.burger-menu {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Меню - по умолчанию скрыто */
 nav#menu {
   position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
+  top: 52px;  /* чуть ниже шапки */
+  right: 16px; /* меню справа */
+  width: 200px;
   background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
-  text-align: center;
+  display: none; /* скрыто */
+  text-align: left;
+  padding: 12px 0;
 }
 
+/* Показываем меню при активном классе */
+nav#menu.active {
+  display: block;
+}
+
+/* Список меню */
 nav#menu ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+/* Пункты меню */
 nav#menu li {
-  margin: 10px 0;
+  margin: 0;
+  padding: 8px 24px;
 }
 
-.logo {
-  font-size: 22px;
+/* Ссылки и кнопки меню */
+nav#menu li a,
+nav#menu li button {
+  text-decoration: none;
+  color: #E0218A;
   font-weight: 600;
-  color: #fff6f6;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.burger-menu {
-  position: absolute;
-  top: 12px;
-  right: 12px;
+  font-size: 16px;
+  display: block;
+  cursor: pointer;
   background: none;
   border: none;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
+  width: 100%;
+  text-align: left;
 }
 
+/* При наведении */
+nav#menu li a:hover,
+nav#menu li button:hover {
+  background-color: #ffe0f2;
+  color: #C01578;
+  border-radius: 4px;
+}
+
+/* Поисковая панель */
 .search-bar {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 12px;
-  gap: 6px;
+  padding: 12px 16px;
+  gap: 8px;
   background-color: #fff5fa;
-}
-
-.search-bar input {
-  padding: 12px;
-  width: 100%;
-  max-width: 600px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  max-width: 700px;
+  margin: 16px auto 24px;
   border-radius: 8px;
-  flex: 1;
+  box-shadow: 0 0 8px #f0c1d8;
 }
 
+/* Поле поиска */
+.search-bar input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline-offset: 2px;
+  outline-color: #E0218A;
+  transition: outline-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline-color: #C01578;
+}
+
+/* Кнопки поиска и очистки */
 .search-bar button {
-  padding: 12px 20px;
+  padding: 12px 22px;
+  font-size: 16px;
   background-color: #E0218A;
   color: white;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
 }
 
 .search-bar button:hover {
   background-color: #C01578;
+}
+
+/* Слайдер */
+.slider {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  position: relative;
+  text-align: center;
+}
+
+/* Каждый слайд */
+.slide {
+  display: none;
+  font-size: 1.3em;
+  padding: 24px 16px;
+  background-color: #ffc9e8;
+  color: #4B004B;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ffb7dbaa;
+}
+
+/* Активный слайд */
+.slide.active {
+  display: block;
+}
+
+/* Основной контент */
+main {
+  padding: 0 16px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 26px;
+  margin: 24px 0 16px;
+  font-weight: 600;
+}
+
+/* Сетка товаров */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+/* Карточка товара */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ffe0f2;
+  padding: 16px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product-card h3 {
+  margin: 12px 0 8px;
+  font-size: 18px;
+  color: #4B004B;
+}
+
+.product-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #6a2a6c;
+}
+
+.product-card .fav-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 22px;
+  color: #E0218A;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    max-width: 90%;
+    margin: 16px auto 24px;
+  }
+
+  nav#menu {
+    top: 48px;
+    right: 12px;
+    width: 180px;
+    padding: 10px 0;
+  }
+
+  .product-list {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .burger-menu {
+    font-size: 18px;
+  }
 }
