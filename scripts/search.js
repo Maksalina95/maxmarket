@@ -23,7 +23,9 @@ function renderProducts(products) {
 }
 
 function filterSuggestions(query) {
-  const matches = allProducts.filter(p => p.название.toLowerCase().includes(query.toLowerCase()));
+  const matches = allProducts.filter(p =>
+    p.название.toLowerCase().includes(query.toLowerCase())
+  );
   suggestions.innerHTML = "";
   matches.slice(0, 5).forEach(p => {
     const li = document.createElement("li");
@@ -31,15 +33,15 @@ function filterSuggestions(query) {
     li.onclick = () => {
       searchInput.value = p.название;
       suggestions.innerHTML = "";
-      clearBtn.style.display = "block"; // показать ✕ при выборе подсказки
+      clearBtn.style.display = "block"; // ✕ показывается при выборе из подсказок
     };
     suggestions.appendChild(li);
   });
 }
 
 searchInput.addEventListener("input", e => {
-  const query = e.target.value;
-  clearBtn.style.display = query.length > 0 ? "block" : "none"; // показать/скрыть ✕
+  const query = e.target.value.trim();
+  clearBtn.style.display = query.length > 0 ? "block" : "none";
   if (query.length > 0) {
     filterSuggestions(query);
   } else {
@@ -48,16 +50,19 @@ searchInput.addEventListener("input", e => {
 });
 
 applyBtn.addEventListener("click", () => {
-  const query = searchInput.value.toLowerCase();
-  const result = allProducts.filter(p => p.название.toLowerCase().includes(query));
+  const query = searchInput.value.trim().toLowerCase();
+  const result = allProducts.filter(p =>
+    p.название.toLowerCase().includes(query)
+  );
   renderProducts(result);
+  suggestions.innerHTML = "";
 });
 
 clearBtn.addEventListener("click", () => {
   searchInput.value = "";
+  clearBtn.style.display = "none";
   suggestions.innerHTML = "";
-  clearBtn.style.display = "none"; // скрыть ✕
-  renderProducts(allProducts); // вернуть все товары
+  renderProducts(allProducts);
 });
 
 fetch(`${baseUrl}/Товары`)
