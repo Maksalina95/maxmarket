@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="icons/icon-192.png" type="image/png" />
-  <!-- Подключаем оба шрифта Poppins и Lobster -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -16,7 +15,6 @@
     <button class="burger-menu" id="burgerBtn" aria-label="Открыть меню">Меню ☰</button>
   </header>
 
-  <!-- Меню скрыто по умолчанию -->
   <nav id="menu" class="hidden" role="navigation" aria-label="Главное меню">
     <ul>
       <li><a href="catalog.html">Категории</a></li>
@@ -29,17 +27,21 @@
     </ul>
   </nav>
 
+  <!-- Поисковая строка -->
   <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" aria-label="Поле поиска по сайту">
-    <button id="applySearchBtn">Поиск</button>
-    <button id="clearSearch" aria-label="Очистить поиск">✕</button>
+    <form onsubmit="return false;" class="search-form">
+      <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" aria-label="Поиск">
+      <button id="clearSearch" type="button" aria-label="Очистить">✕</button>
+    </form>
   </div>
 
+  <!-- Слайдер -->
   <section class="slider">
     <div class="slide active">🌸 Добро пожаловать в Магазин Максалины!</div>
     <div class="slide">📢 Здесь могла бы быть ваша РЕКЛАМА</div>
   </section>
 
+  <!-- Основной контент -->
   <main>
     <h2>Новинки</h2>
     <ul id="suggestions"></ul>
@@ -50,5 +52,21 @@
   <script src="scripts/app.js"></script>
   <script src="scripts/search.js"></script>
   <script src="scripts/menu.js"></script>
+
+  <!-- Встроенный скрипт ✕ -->
+  <script>
+    const input = document.getElementById("searchInput");
+    const clearBtn = document.getElementById("clearSearch");
+
+    input.addEventListener("input", () => {
+      clearBtn.style.display = input.value ? "block" : "none";
+    });
+
+    clearBtn.addEventListener("click", () => {
+      input.value = "";
+      clearBtn.style.display = "none";
+      // Можно: перезагрузить товары или убрать фильтрацию
+    });
+  </script>
 </body>
 </html>
