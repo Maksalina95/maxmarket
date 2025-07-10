@@ -30,8 +30,9 @@
   <!-- Поисковая строка -->
   <div class="search-bar">
     <form onsubmit="return false;" class="search-form">
-      <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" aria-label="Поиск">
-      <button id="clearSearch" type="button" aria-label="Очистить">✕</button>
+      <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" aria-label="Поиск" />
+      <button type="button" id="clearSearch" aria-label="Очистить">✕</button>
+      <button type="submit" id="applySearchBtn" aria-label="Поиск">Поиск</button>
     </form>
   </div>
 
@@ -53,20 +54,33 @@
   <script src="scripts/search.js"></script>
   <script src="scripts/menu.js"></script>
 
-  <!-- Встроенный скрипт ✕ -->
   <script>
     const input = document.getElementById("searchInput");
     const clearBtn = document.getElementById("clearSearch");
+    const searchBtn = document.getElementById("applySearchBtn");
 
     input.addEventListener("input", () => {
-      clearBtn.style.display = input.value ? "block" : "none";
+      clearBtn.style.display = input.value.trim() ? "block" : "none";
     });
 
     clearBtn.addEventListener("click", () => {
       input.value = "";
       clearBtn.style.display = "none";
-      // Можно: перезагрузить товары или убрать фильтрацию
+      document.getElementById("productList").innerHTML = ""; // сбросить результаты
     });
+
+    searchBtn.addEventListener("click", () => {
+      const query = input.value.trim();
+      if (query !== "") {
+        performSearch(query);
+      }
+    });
+
+    function performSearch(query) {
+      // Тут можно вызвать свою функцию из search.js
+      const event = new CustomEvent("search", { detail: query });
+      window.dispatchEvent(event);
+    }
   </script>
 </body>
 </html>
