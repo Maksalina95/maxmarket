@@ -31,6 +31,7 @@ function filterSuggestions(query) {
     li.onclick = () => {
       searchInput.value = p.название;
       suggestions.innerHTML = "";
+      clearBtn.style.display = "block"; // показать ✕ при выборе подсказки
     };
     suggestions.appendChild(li);
   });
@@ -38,6 +39,7 @@ function filterSuggestions(query) {
 
 searchInput.addEventListener("input", e => {
   const query = e.target.value;
+  clearBtn.style.display = query.length > 0 ? "block" : "none"; // показать/скрыть ✕
   if (query.length > 0) {
     filterSuggestions(query);
   } else {
@@ -54,7 +56,8 @@ applyBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
   searchInput.value = "";
   suggestions.innerHTML = "";
-  renderProducts(allProducts); // вернуть всё
+  clearBtn.style.display = "none"; // скрыть ✕
+  renderProducts(allProducts); // вернуть все товары
 });
 
 fetch(`${baseUrl}/Товары`)
