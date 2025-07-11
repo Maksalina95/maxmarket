@@ -14,10 +14,14 @@
     <button class="burger-menu" id="burgerBtn">☰</button>
   </header>
 
+  <!-- 🍔 Меню -->
   <nav id="menu" class="hidden">
     <ul>
       <li><a href="index.html">Главная</a></li>
-      <li><a href="catalog.html">Каталог</a></li>
+      <li>
+        <button id="catalogBtn">Каталог ▼</button>
+        <ul id="dynamicCategoryMenu" class="hidden"></ul>
+      </li>
       <li><a href="favorites.html">Избранное</a></li>
       <li><a href="delivery.html">Доставка</a></li>
       <li><a href="contacts.html">Контакты</a></li>
@@ -27,7 +31,7 @@
     </ul>
   </nav>
 
-  <!-- Поиск -->
+  <!-- 🔍 Поиск -->
   <section class="search-container">
     <input type="text" id="searchInput" placeholder="Найти товар..." />
     <button id="applySearchBtn">Найти</button>
@@ -35,18 +39,19 @@
     <ul id="suggestions"></ul>
   </section>
 
-  <!-- Слайдер -->
+  <!-- 🎞 Слайдер -->
   <section class="slider">
     <img class="slide active" src="assets/slide1.jpg" alt="Акция 1" />
     <img class="slide" src="assets/slide2.jpg" alt="Акция 2" />
   </section>
 
-  <!-- Новинки -->
+  <!-- 🆕 Новинки / Каталог -->
   <main>
-    <h2>Новинки</h2>
+    <h2>Каталог товаров</h2>
     <div id="productList" class="product-list"></div>
   </main>
 
+  <!-- ⚙️ Скрипты -->
   <script src="scripts/config.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/search.js"></script>
