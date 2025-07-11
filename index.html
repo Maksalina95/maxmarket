@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html><html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,196 +8,245 @@
   <link rel="icon" href="icons/icon-192.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-    }
+      overscroll-behavior: none;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff0f6;
+      color: #4B004B;
+    }header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #E0218A;
+  position: relative;
+  z-index: 500;
+  color: white;
+}
 
-    header {
-      display: flex;
-      align-items: center;
-      padding: 15px 20px;
-      background-color: #f1f1f1;
-      position: relative;
-      z-index: 500;
-    }
+header .logo {
+  margin: 0 auto;
+  font-family: 'Lobster', cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff5fa;
+}
 
-    header .logo {
-      margin: 0 auto;
-      font-family: 'Lobster', cursive;
-      font-size: 28px;
-      font-weight: 700;
-      color: #e63946;
-    }
+.bottom-icons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 
-    /* Нижняя фиксированная панель */
-    .bottom-icons {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      display: flex;
-      justify-content: space-around;
-      padding: 8px 0;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
+.bottom-icons button {
+  background: #fff;
+  border: none;
+  color: #e63946;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
 
-    .bottom-icons button {
-      background: #fff;
-      border: none;
-      color: #e63946;
-      font-size: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-      font-weight: 600;
-    }
+.bottom-icons button:hover {
+  color: #c62d3b;
+}
 
-    .bottom-icons button:hover {
-      color: #c62d3b;
-    }
+.full-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 1500;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;
+}
 
-    .bottom-icons span {
-      font-size: 12px;
-    }
+.full-panel.active {
+  display: flex;
+}
 
-    .full-panel {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #fff;
-      z-index: 1500;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 40px 20px;
-      box-sizing: border-box;
-      animation: fadeIn 0.3s ease;
-      overflow-y: auto;
-    }
+.full-panel h2 {
+  font-size: 26px;
+  color: #e63946;
+  margin-bottom: 20px;
+}
 
-    .full-panel.active {
-      display: flex;
-    }
+.full-panel .close-panel {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
 
-    .full-panel h2 {
-      font-size: 26px;
-      color: #e63946;
-      margin-bottom: 20px;
-    }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-    .full-panel .close-panel {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 28px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      color: #333;
-    }
+.search-bar {
+  padding: 16px;
+  background-color: #fff5fa;
+  box-shadow: 0 0 8px #f0c1d8;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+.search-form {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  gap: 8px;
+}
 
-    .search-bar {
-      padding: 20px;
-    }
+.search-form input {
+  flex: 1;
+  padding: 12px 40px 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  box-sizing: border-box;
+}
 
-    .slider {
-      padding: 20px;
-      background: #fefefe;
-    }
+.search-form button {
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #E0218A;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-    main {
-      padding: 20px;
-      padding-bottom: 80px; /* чтобы не перекрывать товарами меню */
-    }
+#clearSearch {
+  position: absolute;
+  right: 110px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #E0218A;
+  cursor: pointer;
+  display: none;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+.slider {
+  padding: 20px;
+  background: #fefefe;
+}
+
+main {
+  padding: 0 16px 100px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ffe0f2;
+  padding: 16px;
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product-card h3 {
+  margin: 12px 0 8px;
+  font-size: 18px;
+  color: #4B004B;
+}
+
+.product-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #6a2a6c;
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1 class="logo">МаксМаркет</h1>
-  </header>
-
-  <!-- Панель-перекрытие -->
-  <div class="full-panel" id="panel">
+  </header>  <div class="full-panel" id="panel">
     <button class="close-panel" onclick="closePanel()">✖</button>
     <h2 id="panelTitle"></h2>
     <div id="panelContent">Загрузка...</div>
-  </div>
-
-  <!-- Поисковая строка -->
-<div class="search-bar">
-  <form onsubmit="return false;" class="search-form" style="position:relative; max-width: 700px; margin: 0 auto;">
-    <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" style="padding-right: 40px; width:100%; height: 42px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc;" />
-    
-    <!-- Крестик ✕ -->
-    <span id="clearSearch" style="
-      display: none;
-      position: absolute;
-      right: 48px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
-      color: #e63946;
-      cursor: pointer;
-      font-weight: bold;
-      background: transparent;
-      user-select: none;
-    ">✕</span>
-    
-    <button type="submit" id="applySearchBtn" style="
-      padding: 10px 16px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      background-color: #e63946;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      margin-left: 8px;
-    ">Поиск</button>
-  </form>
-</div>
-
-  <!-- Слайдер -->
-  <section class="slider">
+  </div>  <div class="search-bar">
+    <form class="search-form" onsubmit="return false;">
+      <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" />
+      <span id="clearSearch">✕</span>
+      <button type="submit" id="applySearchBtn">Поиск</button>
+    </form>
+  </div>  <section class="slider">
     <div class="slide active">🌸 Добро пожаловать в Магазин Максалины!</div>
     <div class="slide">📢 Здесь могла бы быть ваша РЕКЛАМА</div>
-  </section>
-
-  <!-- Основной контент -->
-  <main>
+  </section>  <main>
     <h2>Новинки</h2>
     <ul id="suggestions"></ul>
-    <div id="productList" class="product-list"></div>
-  </main>
-
-<!-- Нижняя навигация -->
-<div class="bottom-icons" role="navigation" aria-label="Основное меню">
-  <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒</button>
-  <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞</button>
-  <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖</button>
-  <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">❤️</button>
-  <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍</button>
-  <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">📝</button>
-  <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆</button>
-</div>
-  
-  <!-- Скрипты -->
-  <script>
+    <div id="productList" class="product-list">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x200.png?text=Товар+1" alt="Товар 1">
+        <h3>Красивый товар</h3>
+        <p>Описание товара</p>
+        <p><strong>₽ 990</strong></p>
+      </div>
+    </div>
+  </main>  <div class="bottom-icons" role="navigation" aria-label="Основное меню">
+    <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒</button>
+    <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞</button>
+    <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖</button>
+    <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">❤️</button>
+    <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍</button>
+    <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">📝</button>
+    <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆</button>
+  </div>  <script>
     function openPanel(title, url) {
       document.getElementById('panelTitle').innerText = title;
       const content = document.getElementById('panelContent');
@@ -243,6 +291,5 @@
       const event = new CustomEvent("search", { detail: query });
       window.dispatchEvent(event);
     }
-  </script>
-</body>
+  </script></body>
 </html>
