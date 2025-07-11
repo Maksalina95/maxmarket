@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
@@ -13,123 +13,101 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-    }header {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #f1f1f1;
-  position: relative;
-  z-index: 500;
-}
-
-header .logo {
-  margin: 0 auto;
-  font-family: 'Lobster', cursive;
-  font-size: 28px;
-  font-weight: 700;
-  color: #e63946;
-}
-
-/* Боковые иконки */
-.side-icons {
-  position: fixed;
-  right: 10px;
-  top: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
-
-.side-icons button {
-  background: #fff;
-  border: 2px solid #e63946;
-  color: #e63946;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.side-icons button:hover {
-  background: #e63946;
-  color: #fff;
-}
-
-.full-panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #fff;
-  z-index: 1500;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  animation: fadeIn 0.3s ease;
-}
-
-.full-panel.active {
-  display: flex;
-}
-
-.full-panel h2 {
-  font-size: 26px;
-  color: #e63946;
-  margin-bottom: 20px;
-}
-
-.full-panel .close-panel {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 28px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: #333;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.search-bar {
-  padding: 20px;
-}
-
-.slider {
-  padding: 20px;
-  background: #fefefe;
-}
-
-main {
-  padding: 20px;
-}
-
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #f1f1f1;
+      position: relative;
+      z-index: 500;
+    }
+    header .logo {
+      margin: 0 auto;
+      font-family: 'Lobster', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: #e63946;
+    }
+    .side-icons {
+      position: fixed;
+      right: 10px;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .side-icons button {
+      background: #fff;
+      border: 2px solid #e63946;
+      color: #e63946;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .side-icons button:hover {
+      background: #e63946;
+      color: #fff;
+    }
+    .full-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      z-index: 1500;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      animation: fadeIn 0.3s ease;
+      overflow-y: auto;
+    }
+    .full-panel.active {
+      display: flex;
+    }
+    .full-panel h2 {
+      font-size: 26px;
+      color: #e63946;
+      margin-bottom: 20px;
+    }
+    .full-panel .close-panel {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 28px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1 class="logo">МаксМаркет</h1>
   </header>  <!-- Иконки сбоку -->  <div class="side-icons">
-    <button onclick="openPanel('Каталог')">🛒</button>
-    <button onclick="openPanel('Контакты')">📞</button>
-    <button onclick="openPanel('Доставка')">🚖</button>
-    <button onclick="openPanel('Избранное')">❤️</button>
-    <button onclick="openPanel('Адрес')">📍</button>
-    <button onclick="openPanel('Условия')">📝</button>
+    <button onclick="openPanel('Каталог', 'catalog.html')">🛒</button>
+    <button onclick="openPanel('Контакты', 'contacts.html')">📞</button>
+    <button onclick="openPanel('Доставка', 'delivery.html')">🚖</button>
+    <button onclick="openPanel('Избранное', 'favorites.html')">❤️</button>
+    <button onclick="openPanel('Адрес', 'adress.html')">📍</button>
+    <button onclick="openPanel('Условия', 'rules.html')">📝</button>
   </div>  <!-- Панель-перекрытие -->  <div class="full-panel" id="panel">
     <button class="close-panel" onclick="closePanel()">✖</button>
     <h2 id="panelTitle"></h2>
-    <p>Контент раздела появится здесь (в будущем).</p>
+    <div id="panelContent">Загрузка...</div>
   </div>  <!-- Поисковая строка -->  <div class="search-bar">
     <form onsubmit="return false;">
       <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" />
@@ -144,8 +122,18 @@ main {
     <ul id="suggestions"></ul>
     <div id="productList" class="product-list"></div>
   </main>  <!-- Скрипты -->  <script>
-    function openPanel(title) {
+    function openPanel(title, url) {
       document.getElementById('panelTitle').innerText = title;
+      const content = document.getElementById('panelContent');
+      content.innerHTML = 'Загрузка...';
+      fetch(url)
+        .then(response => response.text())
+        .then(html => {
+          content.innerHTML = html;
+        })
+        .catch(() => {
+          content.innerHTML = '<p>Ошибка загрузки.</p>';
+        });
       document.getElementById('panel').classList.add('active');
     }
 
@@ -153,7 +141,6 @@ main {
       document.getElementById('panel').classList.remove('active');
     }
 
-    // Поиск
     const input = document.getElementById("searchInput");
     const clearBtn = document.getElementById("clearSearch");
     const searchBtn = document.getElementById("applySearchBtn");
