@@ -1,67 +1,83 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const burgerBtn = document.getElementById('burgerBtn');
-  const menu = document.getElementById('menu');
+// 📁 scripts/menu.js
 
-  <li>
-  <button onclick="toggleCategoryMenu()">Каталог ▼</button>
-  <ul id="dynamicCategoryMenu" class="hidden"></ul>
-</li>
-                          async function toggleCategoryMenu() {
-  const menu = document.getElementById("dynamicCategoryMenu");
-  if (menu.classList.contains("loaded")) {
-    menu.classList.toggle("hidden");
-    return;
-  }
-async function filterFromMenu(category, subcategory) {
-  const res = await fetch(`${baseUrl}/Лист1`);
-  const data = await res.json();
+// Ожидаем загрузки страницы document.addEventListener('DOMContentLoaded', () => { const burgerBtn = document.getElementById('burgerBtn'); const menu = document.getElementById('menu'); const catalogBtn = document.getElementById('catalogBtn'); const dynamicCategoryMenu = document.getElementById('dynamicCategoryMenu');
 
-  const filtered = data.filter(p =>
-    p.категория === category &&
-    p.подкатегория === subcategory
-  );
+// Открытие/закрытие бургер-меню burgerBtn.addEventListener('click', () => { menu.classList.toggle('active'); });
 
-  const container = document.getElementById("productList");
-  container.innerHTML = "";
-  filtered.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "product-card";
-    card.innerHTML = `
-      <img src="${p.фото}" alt="${p.название}">
-      <h3>${p.название}</h3>
-      <p>${p.описание || ""}</p>
-      <p><strong>${p.цена} ₽</strong></p>
-      <a href="https://wa.me/798376280080" target="_blank">WhatsApp</a>
-    `;
-    container.appendChild(card);
-  });
+// Закрытие меню при клике вне document.addEventListener('click', (e) => { if (!menu.contains(e.target) && !burgerBtn.contains(e.target)) { menu.classList.remove('active'); dynamicCategoryMenu.classList.add('hidden'); } });
 
-  // Закрыть меню после выбора
-  document.getElementById("menu").classList.add("hidden");
-}
-  const res = await fetch(`${baseUrl}/Лист1`);
-  const data = await res.json();
+// Открытие/закрытие подменю каталога catalogBtn.addEventListener('click', (e) => { e.stopPropagation(); dynamicCategoryMenu.classList.toggle('hidden'); });
 
-  const categories = [...new Set(data.map(p => p.категория).filter(Boolean))];
+// Загрузка категорий при загрузке страницы loadCategories(); });
 
-  menu.innerHTML = categories.map(cat => `
-    <li>
-      <button onclick="showMenuSubcategories('${cat}', this)">📁 ${cat}</button>
-      <ul class="subcat hidden" id="subcat-${cat}"></ul>
-    </li>
-  `).join('');
+// Загрузка категорий из таблицы async function loadCategories() { const dynamicCategoryMenu = document.getElementById('dynamicCategoryMenu'); try { const response = await fetch(${baseUrl}/товары); const data = await response.json(); const categories = [...new Set(data.map(p => p.категория).filter(Boolean))];
 
-  menu.classList.add("loaded");
-  menu.classList.remove("hidden");
-}
-                          
-  burgerBtn.addEventListener('click', () => {
-    menu.classList.toggle('active'); // Показываем или скрываем меню
-  });
+dynamicCategoryMenu.innerHTML = categories.map(cat => 
+  `<li><button class="category-btn" data-category="${cat}">${cat}</button></li>`
+).join('');
 
-  document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !burgerBtn.contains(e.target)) {
-      menu.classList.remove('active'); // Скрываем меню при клике вне его
-    }
+dynamicCategoryMenu.querySelectorAll('.category-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    showSubcategories(btn.dataset.category);
   });
 });
+
+} catch (err) { console.error('Ошибка загрузки категорий', err); } }
+
+// Подкатегории async function showSubcategories(category) { const dynamicCategoryMenu = document.getElementById('dynamicCategoryMenu'); try { const response = await fetch(${baseUrl}/товары); const data = await response.json(); const subcategories = [...new Set(data.filter(p => p.категория === category).map(p => p.подкатегория).filter(Boolean))];
+
+if (subcategories.length === 0) {
+  showProducts(category, null, null);
+  dynamicCategoryMenu.classList.add('hidden');
+  return;
+}
+
+dynamicCategoryMenu.innerHTML = `
+  <li><button id="backToCategories">← Назад</button></li>
+  ${subcategories.map(sub => `<li><button class="subcategory-btn" data-category="${category}" data-subcategory="${sub}">${sub}</button></li>`).join('')}
+`;
+
+document.getElementById('backToCategories').addEventListener('click', loadCategories);
+
+dynamicCategoryMenu.querySelectorAll('.subcategory-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    showSubsubcategories(btn.dataset.category, btn.dataset.subcategory);
+  });
+});
+
+} catch (err) { console.error('Ошибка подкатегорий', err); } }
+
+// Подподкатегории async function showSubsubcategories(category, subcategory) { const dynamicCategoryMenu = document.getElementById('dynamicCategoryMenu'); try { const response = await fetch(${baseUrl}/товары); const data = await response.json(); const subsubcategories = [...new Set( data.filter(p => p.категория === category && p.подкатегория === subcategory) .map(p => p.подподкатегория).filter(Boolean) )];
+
+if (subsubcategories.length === 0) {
+  showProducts(category, subcategory, null);
+  dynamicCategoryMenu.classList.add('hidden');
+  return;
+}
+
+dynamicCategoryMenu.innerHTML = `
+  <li><button id="backToSubcategories">← Назад</button></li>
+  ${subsubcategories.map(sub => `<li><button class="subsubcategory-btn" data-category="${category}" data-subcategory="${subcategory}" data-subsubcategory="${sub}">${sub}</button></li>`).join('')}
+`;
+
+document.getElementById('backToSubcategories').addEventListener('click', () => showSubcategories(category));
+
+dynamicCategoryMenu.querySelectorAll('.subsubcategory-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    showProducts(btn.dataset.category, btn.dataset.subcategory, btn.dataset.subsubcategory);
+    dynamicCategoryMenu.classList.add('hidden');
+  });
+});
+
+} catch (err) { console.error('Ошибка подподкатегорий', err); } }
+
+// Показываем товары async function showProducts(category, subcategory, subsubcategory) { try { const response = await fetch(${baseUrl}/товары); const data = await response.json();
+
+let filtered = data.filter(p => p.категория === category);
+if (subcategory) filtered = filtered.filter(p => p.подкатегория === subcategory);
+if (subsubcategory) filtered = filtered.filter(p => p.подподкатегория === subsubcategory);
+
+renderProductList(filtered, document.getElementById('productList'));
+
+} catch (err) { console.error('Ошибка загрузки товаров', err); } }
+
