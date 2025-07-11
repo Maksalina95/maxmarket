@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +15,7 @@
       padding: 0;
       overflow-x: hidden;
     }
+
     header {
       display: flex;
       align-items: center;
@@ -22,6 +24,7 @@
       position: relative;
       z-index: 500;
     }
+
     header .logo {
       margin: 0 auto;
       font-family: 'Lobster', cursive;
@@ -29,16 +32,23 @@
       font-weight: 700;
       color: #e63946;
     }
-    .side-icons {
+
+    /* Нижнее горизонтальное меню */
+    .bottom-icons {
       position: fixed;
-      right: 10px;
-      top: 100px;
+      bottom: 10px;
+      left: 0;
+      right: 0;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       gap: 15px;
       z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 0;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     }
-    .side-icons button {
+
+    .bottom-icons button {
       background: #fff;
       border: 2px solid #e63946;
       color: #e63946;
@@ -47,12 +57,15 @@
       height: 48px;
       font-size: 20px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
-    .side-icons button:hover {
+
+    .bottom-icons button:hover {
       background: #e63946;
       color: #fff;
+      transform: scale(1.1);
     }
+
     .full-panel {
       position: fixed;
       top: 0;
@@ -70,14 +83,17 @@
       animation: fadeIn 0.3s ease;
       overflow-y: auto;
     }
+
     .full-panel.active {
       display: flex;
     }
+
     .full-panel h2 {
       font-size: 26px;
       color: #e63946;
       margin-bottom: 20px;
     }
+
     .full-panel .close-panel {
       position: absolute;
       top: 15px;
@@ -88,40 +104,73 @@
       cursor: pointer;
       color: #333;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
+    }
+
+    .search-bar {
+      padding: 20px;
+    }
+
+    .slider {
+      padding: 20px;
+      background: #fefefe;
+    }
+
+    main {
+      padding: 20px;
+      padding-bottom: 80px; /* чтобы не перекрывало нижнее меню */
     }
   </style>
 </head>
 <body>
   <header>
     <h1 class="logo">МаксМаркет</h1>
-  </header>  <!-- Иконки сбоку -->  <div class="side-icons">
+  </header>
+
+  <!-- Горизонтальное нижнее меню -->
+  <div class="bottom-icons">
     <button onclick="openPanel('Каталог', 'catalog.html')">🛒</button>
     <button onclick="openPanel('Контакты', 'contacts.html')">📞</button>
     <button onclick="openPanel('Доставка', 'delivery.html')">🚖</button>
     <button onclick="openPanel('Избранное', 'favorites.html')">❤️</button>
     <button onclick="openPanel('Адрес', 'adress.html')">📍</button>
     <button onclick="openPanel('Условия', 'rules.html')">📝</button>
-  </div>  <!-- Панель-перекрытие -->  <div class="full-panel" id="panel">
+  </div>
+
+  <!-- Панель-перекрытие -->
+  <div class="full-panel" id="panel">
     <button class="close-panel" onclick="closePanel()">✖</button>
     <h2 id="panelTitle"></h2>
     <div id="panelContent">Загрузка...</div>
-  </div>  <!-- Поисковая строка -->  <div class="search-bar">
+  </div>
+
+  <!-- Поисковая строка -->
+  <div class="search-bar">
     <form onsubmit="return false;">
       <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" />
       <span id="clearSearch" style="display:none; cursor:pointer;">✕</span>
       <button type="submit" id="applySearchBtn">Поиск</button>
     </form>
-  </div>  <!-- Слайдер -->  <section class="slider">
+  </div>
+
+  <!-- Слайдер -->
+  <section class="slider">
     <div class="slide active">🌸 Добро пожаловать в Магазин Максалины!</div>
     <div class="slide">📢 Здесь могла бы быть ваша РЕКЛАМА</div>
-  </section>  <!-- Основной контент -->  <main>
+  </section>
+
+  <!-- Основной контент -->
+  <main>
     <h2>Новинки</h2>
     <ul id="suggestions"></ul>
     <div id="productList" class="product-list"></div>
-  </main>  <!-- Скрипты -->  <script>
+  </main>
+
+  <!-- Скрипты -->
+  <script>
     function openPanel(title, url) {
       document.getElementById('panelTitle').innerText = title;
       const content = document.getElementById('panelContent');
@@ -166,5 +215,6 @@
       const event = new CustomEvent("search", { detail: query });
       window.dispatchEvent(event);
     }
-  </script></body>
+  </script>
+</body>
 </html>
