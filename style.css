@@ -283,19 +283,4 @@ h2 {
   .bottom-icons button {
     font-size: 20px;
   }
-
-  .refresh-btn {
-  background: transparent;  /* прозрачный фон */
-  border: none;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.7); /* полупрозрачный белый */
-  cursor: pointer;
-  margin-left: auto;
-  padding: 4px 8px;
-  transition: color 0.3s ease;
-}
-
-.refresh-btn:hover {
-  color: white; /* при наведении становится ярче */
-}
 }
