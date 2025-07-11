@@ -140,13 +140,38 @@
   </div>
 
   <!-- Поисковая строка -->
-  <div class="search-bar">
-    <form onsubmit="return false;">
-      <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" />
-      <span id="clearSearch" style="display:none; cursor:pointer;">✕</span>
-      <button type="submit" id="applySearchBtn">Поиск</button>
-    </form>
-  </div>
+<div class="search-bar">
+  <form onsubmit="return false;" class="search-form" style="position:relative; max-width: 700px; margin: 0 auto;">
+    <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" style="padding-right: 40px; width:100%; height: 42px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc;" />
+    
+    <!-- Крестик ✕ -->
+    <span id="clearSearch" style="
+      display: none;
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #e63946;
+      cursor: pointer;
+      font-weight: bold;
+      background: transparent;
+      user-select: none;
+    ">✕</span>
+    
+    <button type="submit" id="applySearchBtn" style="
+      padding: 10px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #e63946;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 8px;
+    ">Поиск</button>
+  </form>
+</div>
 
   <!-- Слайдер -->
   <section class="slider">
