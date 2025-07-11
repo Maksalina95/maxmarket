@@ -248,7 +248,9 @@ main {
     <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍</button>
     <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">📝</button>
     <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆</button>
-  </div>  <script>
+    <button onclick="location.reload()" aria-label="Обновить страницу">🔄</button>
+  </div>  
+  <script>
     function openPanel(title, url) {
       document.getElementById('panelTitle').innerText = title;
       const content = document.getElementById('panelContent');
