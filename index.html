@@ -234,16 +234,41 @@ main {
     <div id="productList" class="product-list">
       <div class="product-card">
     </div>
-  </main>  <div class="bottom-icons" role="navigation" aria-label="Основное меню">
-    <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒</button>
-    <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞</button>
-    <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖</button>
-    <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">❤️</button>
-    <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍</button>
-    <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">📝</button>
-    <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆</button>
-    <button onclick="location.reload()" aria-label="Обновить страницу">🔄</button>
-  </div>  
+  </main>  
+<div class="bottom-icons" role="navigation" aria-label="Основное меню">
+  <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">
+    <div class="icon-circle">🛒</div>
+    <span>Каталог</span>
+  </button>
+  <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">
+    <div class="icon-circle">📞</div>
+    <span>Контакты</span>
+  </button>
+  <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">
+    <div class="icon-circle">🚖</div>
+    <span>Доставка</span>
+  </button>
+  <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">
+    <div class="icon-circle">❤️</div>
+    <span>Избранное</span>
+  </button>
+  <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">
+    <div class="icon-circle">📍</div>
+    <span>Адрес</span>
+  </button>
+  <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">
+    <div class="icon-circle">📝</div>
+    <span>Условия</span>
+  </button>
+  <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">
+    <div class="icon-circle">🏆</div>
+    <span>Отзывы</span>
+  </button>
+  <button onclick="location.reload()" aria-label="Обновить страницу">
+    <div class="icon-circle">🔄</div>
+    <span>Обновить</span>
+  </button>
+</div>
   <script>
     function openPanel(title, url) {
       document.getElementById('panelTitle').innerText = title;
