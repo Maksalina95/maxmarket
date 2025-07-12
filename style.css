@@ -187,6 +187,85 @@ h2 {
 }
 
 /* Нижняя навигация */
+.bottom-icons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.bottom-icons button {
+  position: relative;
+  background: #fff;
+  border: none;
+  color: #e63946;
+  font-size: 28px; /* чуть больше иконки */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 6px 4px;
+  user-select: none;
+}
+
+.bottom-icons button:hover,
+.bottom-icons button:focus {
+  color: #c62d3b;
+}
+
+/* Тултип */
+.tooltip {
+  position: absolute;
+  bottom: 38px; /* чуть выше иконки */
+  background: #e63946;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  user-select: none;
+  z-index: 1001;
+}
+
+.bottom-icons button:hover .tooltip,
+.bottom-icons button:focus .tooltip,
+.bottom-icons button:active .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Стрелочка под тултипом */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #e63946 transparent transparent transparent;
+}
+
+/* Адаптив: уменьшим иконки на маленьких экранах */
+@media (max-width: 480px) {
+  .bottom-icons button {
+    font-size: 24px;
+  }
+  .tooltip {
+    font-size: 10px;
+    bottom: 32px;
+  }
+}
 
 /* Панель */
 .full-panel {
