@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>МАКС Маркет</title>
+  <title>Каталог — МАКС Маркет</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="icons/icon-192.png" type="image/png" />
@@ -11,50 +11,41 @@
 <body>
   <header>
     <h1 class="logo">МАКС Маркет</h1>
-    <button class="burger-menu" id="burgerBtn">☰</button>
   </header>
 
-  <!-- 🍔 Меню -->
-  <nav id="menu" class="hidden">
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li>
-        <button id="catalogBtn">Каталог ▼</button>
-        <ul id="dynamicCategoryMenu" class="hidden"></ul>
-      </li>
-      <li><a href="favorites.html">Избранное</a></li>
-      <li><a href="delivery.html">Доставка</a></li>
-      <li><a href="contacts.html">Контакты</a></li>
-      <li><a href="rules.html">Условия</a></li>
-      <li><a href="adress.html">Адрес</a></li>
-      <li><button onclick="location.reload()">🔄 Обновить сайт</button></li>
-    </ul>
-  </nav>
-
-  <!-- 🔍 Поиск -->
-  <section class="search-container">
-    <input type="text" id="searchInput" placeholder="Найти товар..." />
-    <button id="applySearchBtn">Найти</button>
-    <button id="clearSearch">✕</button>
-    <ul id="suggestions"></ul>
-  </section>
-
-  <!-- 🎞 Слайдер -->
-  <section class="slider">
-    <img class="slide active" src="assets/slide1.jpg" alt="Акция 1" />
-    <img class="slide" src="assets/slide2.jpg" alt="Акция 2" />
-  </section>
-
-  <!-- 🆕 Новинки / Каталог -->
   <main>
-    <h2>Каталог товаров</h2>
-    <div id="productList" class="product-list"></div>
+    <h2>Выберите категорию</h2>
+    <div id="categoryList" class="product-list"></div>
   </main>
 
-  <!-- ⚙️ Скрипты -->
   <script src="scripts/config.js"></script>
-  <script src="scripts/app.js"></script>
-  <script src="scripts/search.js"></script>
-  <script src="scripts/menu.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const container = document.getElementById("categoryList");
+
+      try {
+        const res = await fetch(`${baseUrl}/Лист1`);
+        const data = await res.json();
+
+        // Уникальные категории
+        const categories = [...new Set(data.map(p => p.категория).filter(Boolean))];
+
+        categories.forEach(cat => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.style.cursor = "pointer";
+          card.innerHTML = `<h3>${cat}</h3>`;
+          card.addEventListener("click", () => {
+            window.location.href = `subcategory.html?category=${encodeURIComponent(cat)}`;
+          });
+          container.appendChild(card);
+        });
+
+      } catch (err) {
+        container.innerHTML = `<p>Ошибка загрузки категорий.</p>`;
+        console.error(err);
+      }
+    });
+  </script>
 </body>
 </html>
