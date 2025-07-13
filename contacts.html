@@ -3,47 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>МаксМаркет — Связь с нами</title>
+  <title>Контакты — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    body { font-family: sans-serif; }
-    main { padding: 20px; }
-    h2 { color: #a63b3b; }
-    ul.contact-list { list-style: none; padding-left: 0; }
-    ul.contact-list li { margin-bottom: 10px; font-size: 18px; }
-    .question-buttons { margin-top: 25px; }
-    .question-buttons h3 { margin-bottom: 10px; }
-    .question-buttons button {
-      display: block; width: 100%; margin-bottom: 10px; padding: 12px;
-      font-size: 16px; background-color: #25D366; color: white;
-      border: none; border-radius: 8px; cursor: pointer;
+    body {
+      font-family: sans-serif;
+      padding: 20px;
     }
-    .bottom-icons {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: #fff0f0; display: flex; justify-content: space-around;
-      padding: 8px 0; box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-      z-index: 1000;
+    h2 {
+      color: #a63b3b;
     }
-    .bottom-icons button {
-      background: none; border: none; font-size: 22px; cursor: pointer; position: relative;
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 320px;
+      margin-top: 15px;
     }
-    .tooltip {
-      position: absolute; bottom: 30px; left: 50%;
-      transform: translateX(-50%);
-      background: #a63b3b; color: white; padding: 3px 8px; border-radius: 4px;
-      font-size: 12px; white-space: nowrap; display: none;
+    .contact-buttons button {
+      background-color: #25D366;
+      border: none;
+      color: white;
+      font-size: 18px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: left;
     }
-    .bottom-icons button:hover .tooltip { display: block; }
+    .contact-buttons button:hover {
+      background-color: #1ebe57;
+    }
   </style>
   <script>
     function openPanel(title, url) {
       window.location.href = url;
     }
 
-    function sendWhatsAppMessage(phone, message) {
-      const encodedMessage = encodeURIComponent(message);
-      const url = `https://wa.me/${phone}?text=${encodedMessage}`;
-      // Важно использовать window.open с _blank, чтобы открывалось в новой вкладке или приложении
+    // Функция для открытия ссылок в новом окне
+    function openLink(url) {
       window.open(url, '_blank');
     }
   </script>
@@ -54,27 +52,19 @@
   </header>
 
   <main>
-    <h2>📞 Связь с нами</h2>
-    <ul class="contact-list">
-      <li>WhatsApp: <a href="https://wa.me/79376280080?text=Здравствуйте!%20Хочу%20сделать%20заказ." target="_blank" rel="noopener noreferrer">+7 937 628-00-80</a></li>
-      <li>WhatsApp: <a href="https://wa.me/89649626694?text=Здравствуйте!%20Интересует%20товар." target="_blank" rel="noopener noreferrer">+7 964 962-66-94</a></li>
-      <li>Telegram: <a href="https://t.me/internet_magazin_v_ingushetii" target="_blank" rel="noopener noreferrer">@internet_magazin_v_ingushetii</a></li>
-      <li>Telegram: <a href="https://t.me/magazin_maksaliny" target="_blank" rel="noopener noreferrer">@magazin_maksaliny</a></li>
-      <li>Instagram: <a href="https://instagram.com/posuda_i_tehnika_u_maksaliny" target="_blank" rel="noopener noreferrer">@posuda_i_tehnika_u_maksaliny</a></li>
-    </ul>
-
-    <div class="question-buttons">
-      <h3>💬 Быстрые сообщения в WhatsApp:</h3>
-      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Хотела бы заказать товар.')">🟢 Хочу заказать товар</button>
-      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Сколько стоит доставка?')">🚚 Сколько стоит доставка?</button>
-      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Какой способ оплаты?')">💳 Какой способ оплаты?</button>
-      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Есть ли в наличии такой товар?')">📦 Есть ли в наличии?</button>
+    <h2>📞 Контакты</h2>
+    <div class="contact-buttons">
+      <button onclick="openLink('https://wa.me/79376280080')">WhatsApp +7 937 628-00-80</button>
+      <button onclick="openLink('https://wa.me/89649626694')">WhatsApp +7 964 962-66-94</button>
+      <button onclick="openLink('https://t.me/internet_magazin_v_ingushetii')">Telegram @internet_magazin_v_ingushetii</button>
+      <button onclick="openLink('https://t.me/magazin_maksaliny')">Telegram @magazin_maksaliny</button>
+      <button onclick="openLink('https://instagram.com/posuda_i_tehnika_u_maksaliny')">Instagram posuda_i_tehnika_u_maksaliny</button>
     </div>
   </main>
 
   <div class="bottom-icons">
     <button onclick="openPanel('Каталог', 'catalog.html')">🛒<span class="tooltip">Каталог</span></button>
-    <button onclick="openPanel('Контакты', 'contacts.html')">📞<span class="tooltip">Связь</span></button>
+    <button onclick="openPanel('Контакты', 'contacts.html')">📞<span class="tooltip">Контакты</span></button>
     <button onclick="openPanel('Доставка', 'delivery.html')">🚖<span class="tooltip">Доставка</span></button>
     <button onclick="openPanel('Избранное', 'favorites.html')">❤️<span class="tooltip">Избранное</span></button>
     <button onclick="openPanel('Адрес', 'adress.html')">📍<span class="tooltip">Адрес</span></button>
