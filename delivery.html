@@ -5,6 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Доставка — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .table-container {
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ffd6eb;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 16px;
+      color: #4B004B;
+      border-bottom: 1px solid #f5c8de;
+    }
+
+    th {
+      background-color: #E0218A;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff5fa;
+    }
+
+    hr {
+      margin: 40px 0;
+      border: none;
+      height: 1px;
+      background: #f0a9cb;
+    }
+
+    main p {
+      background-color: #fff0f6;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin: 12px 0;
+      box-shadow: 0 0 6px #f8c5df80;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        font-size: 14px;
+        padding: 10px;
+      }
+      main h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
   <script>
     function openPanel(title, url) {
       window.location.href = url;
@@ -63,45 +121,21 @@
     <hr />
 
     <h2>📦 Другие способы доставки</h2>
-    <p>📦 Грузовая доставка по Ингушетии — от 1500 ₽ (в зависимости от объёма).</p>
-    <p>📦 СДЭК и другие транспортные компании — при оплате наличными.</p>
-    <p>🚫 Почтовая доставка не осуществляется.</p>
+    <p>🚚 <strong>Грузовая доставка</strong> по Ингушетии — от <strong>1500 ₽</strong> (зависит от объёма заказа).</p>
+    <p>📦 <strong>СДЭК</strong> и другие ТК — возможна при <strong>предоплате наличными</strong>.</p>
+    <p>🚫 <strong>Почта России</strong> — временно не обслуживается.</p>
   </main>
 
-  <!-- 👇 Меню снизу -->
+  <!-- Меню снизу -->
   <div class="bottom-icons" role="navigation" aria-label="Основное меню">
-    <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">
-      🛒
-      <span class="tooltip">Каталог</span>
-    </button>
-    <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">
-      📞
-      <span class="tooltip">Контакты</span>
-    </button>
-    <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">
-      🚖
-      <span class="tooltip">Доставка</span>
-    </button>
-    <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">
-      ❤️
-      <span class="tooltip">Избранное</span>
-    </button>
-    <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">
-      📍
-      <span class="tooltip">Адрес</span>
-    </button>
-    <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">
-      📝
-      <span class="tooltip">Условия</span>
-    </button>
-    <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">
-      🏆
-      <span class="tooltip">Отзывы</span>
-    </button>
-    <button onclick="location.reload()" aria-label="Обновить страницу">
-      🔄
-      <span class="tooltip">Обновить</span>
-    </button>
+    <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒<span class="tooltip">Каталог</span></button>
+    <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞<span class="tooltip">Контакты</span></button>
+    <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖<span class="tooltip">Доставка</span></button>
+    <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">❤️<span class="tooltip">Избранное</span></button>
+    <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍<span class="tooltip">Адрес</span></button>
+    <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">📝<span class="tooltip">Условия</span></button>
+    <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆<span class="tooltip">Отзывы</span></button>
+    <button onclick="location.reload()" aria-label="Обновить">🔄<span class="tooltip">Обновить</span></button>
   </div>
 </body>
 </html>
