@@ -5,61 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Контакты — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    function openPanel(title, url) {
-      window.location.href = url;
-    }
-  </script>
 </head>
 <body>
   <header>
     <h1 class="logo">МаксМаркет</h1>
   </header>
+
   <main>
     <h2>📞 Контакты</h2>
     <ul class="contact-list">
       <li>
-        WhatsApp: 
-        <a href="https://wa.me/79376280080" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp">
-          +7 937 628-00-80
-        </a>
+        <a href="https://wa.me/79376280080" target="_blank" class="contact-btn">💬 WhatsApp: +7 937 628-00-80</a>
       </li>
       <li>
-        WhatsApp: 
-        <a href="https://wa.me/89649626694" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp">
-          +7 964 962-66-94
-        </a>
+        <a href="https://wa.me/89649626694" target="_blank" class="contact-btn">💬 WhatsApp: +7 964 962-66-94</a>
       </li>
       <li>
-        Telegram: 
-        <a href="https://t.me/internet_magazin_v_ingushetii" target="_blank" rel="noopener noreferrer" class="contact-link telegram">
-          @internet_magazin_v_ingushetii
-        </a>
+        <a href="https://t.me/internet_magazin_v_ingushetii" target="_blank" class="contact-btn">📲 Telegram: @internet_magazin_v_ingushetii</a>
       </li>
       <li>
-        Telegram: 
-        <a href="https://t.me/magazin_maksaliny" target="_blank" rel="noopener noreferrer" class="contact-link telegram">
-          @magazin_maksaliny
-        </a>
+        <a href="https://t.me/magazin_maksaliny" target="_blank" class="contact-btn">📲 Telegram: @magazin_maksaliny</a>
       </li>
       <li>
-        Instagram: 
-        <a href="https://instagram.com/posuda_i_tehnika_u_maksaliny" target="_blank" rel="noopener noreferrer" class="contact-link instagram">
-          posuda_i_tehnika_u_maksaliny
-        </a>
+        <a href="https://instagram.com/posuda_i_tehnika_u_maksaliny" target="_blank" class="contact-btn">📸 Instagram: posuda_i_tehnika_u_maksaliny</a>
       </li>
     </ul>
   </main>
 
   <div class="bottom-icons">
-    <button onclick="openPanel('Каталог', 'catalog.html')">🛒<span class="tooltip">Каталог</span></button>
-    <button onclick="openPanel('Контакты', 'contacts.html')">📞<span class="tooltip">Контакты</span></button>
-    <button onclick="openPanel('Доставка', 'delivery.html')">🚖<span class="tooltip">Доставка</span></button>
-    <button onclick="openPanel('Избранное', 'favorites.html')">❤️<span class="tooltip">Избранное</span></button>
-    <button onclick="openPanel('Адрес', 'adress.html')">📍<span class="tooltip">Адрес</span></button>
-    <button onclick="openPanel('Условия', 'rules.html')">📝<span class="tooltip">Условия</span></button>
-    <button onclick="openPanel('Отзывы', 'reviews.html')">🏆<span class="tooltip">Отзывы</span></button>
+    <button onclick="location.href='catalog.html'">🛒<span class="tooltip">Каталог</span></button>
+    <button onclick="location.href='contacts.html'">📞<span class="tooltip">Контакты</span></button>
+    <button onclick="location.href='delivery.html'">🚖<span class="tooltip">Доставка</span></button>
+    <button onclick="location.href='favorites.html'">❤️<span class="tooltip">Избранное</span></button>
+    <button onclick="location.href='adress.html'">📍<span class="tooltip">Адрес</span></button>
+    <button onclick="location.href='rules.html'">📝<span class="tooltip">Условия</span></button>
+    <button onclick="location.href='reviews.html'">🏆<span class="tooltip">Отзывы</span></button>
     <button onclick="location.reload()">🔄<span class="tooltip">Обновить</span></button>
   </div>
+
+  <style>
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px;
+      font-size: 16px;
+    }
+
+    .contact-list li {
+      margin: 12px 0;
+    }
+
+    .contact-btn {
+      text-decoration: none;
+      color: #E0218A;
+      font-weight: 600;
+      border: 1px solid #E0218A;
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #ffe0f2;
+    }
+  </style>
 </body>
 </html>
