@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Контакты — МаксМаркет</title>
-  <!-- Подключаем Font Awesome для иконок -->
+  <!-- Font Awesome для иконок -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -64,7 +64,7 @@
       background-color: #c72e62;
     }
 
-    /* Стили для нижних кнопок внизу страницы */
+    /* Нижнее меню как у тебя */
     .bottom-icons {
       margin-top: 40px;
       display: flex;
@@ -103,18 +103,16 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
+      user-select: none;
     }
     .bottom-icons button:hover .tooltip {
       opacity: 1;
     }
   </style>
   <script>
-    // Открываем ссылку в новой вкладке
     function openLink(url) {
       window.open(url, '_blank');
     }
-
-    // Переход по страницам сайта
     function openPanel(title, url) {
       window.location.href = url;
     }
