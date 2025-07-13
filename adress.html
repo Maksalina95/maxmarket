@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Адрес — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .address-box {
+      background-color: #fff5fa;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px #ffd6eb;
+      max-width: 700px;
+      margin: 24px auto;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4B004B;
+    }
+
+    .address-box strong {
+      color: #E0218A;
+    }
+
+    .address-box p {
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .address-box {
+        padding: 16px;
+        font-size: 15px;
+      }
+    }
+  </style>
   <script>
     function openPanel(title, url) {
       window.location.href = url;
@@ -20,21 +48,20 @@
     <h2>📍 Адрес</h2>
     <div class="address-box">
       <p><strong>Ранее:</strong> ТЦ «Адамо», 2 этаж, №21.</p>
-      <p><strong>Сейчас:</strong> Работаем онлайн, без торговой точки.</p>
+      <p><strong>Сейчас:</strong> Работаем <u>онлайн</u>, без торговой точки.</p>
       <p>💬 Заказы принимаем с заботой и вниманием 🌷</p>
     </div>
   </main>
 
-  <div class="bottom-icons">
-    <!-- то же нижнее меню -->
-    <button onclick="openPanel('Каталог', 'catalog.html')">🛒<span class="tooltip">Каталог</span></button>
-    <button onclick="openPanel('Контакты', 'contacts.html')">📞<span class="tooltip">Контакты</span></button>
-    <button onclick="openPanel('Доставка', 'delivery.html')">🚖<span class="tooltip">Доставка</span></button>
-    <button onclick="openPanel('Избранное', 'favorites.html')">❤️<span class="tooltip">Избранное</span></button>
-    <button onclick="openPanel('Адрес', 'adress.html')">📍<span class="tooltip">Адрес</span></button>
-    <button onclick="openPanel('Условия', 'rules.html')">📝<span class="tooltip">Условия</span></button>
-    <button onclick="openPanel('Отзывы', 'reviews.html')">🏆<span class="tooltip">Отзывы</span></button>
-    <button onclick="location.reload()">🔄<span class="tooltip">Обновить</span></button>
+  <div class="bottom-icons" role="navigation" aria-label="Меню">
+    <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒<span class="tooltip">Каталог</span></button>
+    <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞<span class="tooltip">Контакты</span></button>
+    <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖<span class="tooltip">Доставка</span></button>
+    <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">❤️<span class="tooltip">Избранное</span></button>
+    <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍<span class="tooltip">Адрес</span></button>
+    <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">📝<span class="tooltip">Условия</span></button>
+    <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆<span class="tooltip">Отзывы</span></button>
+    <button onclick="location.reload()" aria-label="Обновить">🔄<span class="tooltip">Обновить</span></button>
   </div>
 </body>
 </html>
