@@ -4,115 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Контакты — МаксМаркет</title>
-  <!-- Font Awesome для иконок -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-      background-color: #fff;
-      color: #333;
-    }
-    h2 {
-      color: #a63b3b;
-      margin-bottom: 20px;
-    }
-    .contact-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 320px;
-      margin-top: 0;
-    }
-    .contact-buttons button {
-      border: none;
-      color: white;
-      font-size: 18px;
-      padding: 12px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    }
-    .contact-buttons button i {
-      margin-right: 12px;
-      font-size: 22px;
-      vertical-align: middle;
-    }
-    .contact-buttons button.whatsapp {
-      background-color: #25D366;
-    }
-    .contact-buttons button.whatsapp:hover {
-      background-color: #1ebe57;
-    }
-    .contact-buttons button.telegram {
-      background-color: #0088cc;
-    }
-    .contact-buttons button.telegram:hover {
-      background-color: #0077b3;
-    }
-    .contact-buttons button.instagram {
-      background-color: #E1306C;
-    }
-    .contact-buttons button.instagram:hover {
-      background-color: #c72e62;
-    }
-
-    /* Нижнее меню как у тебя */
-    .bottom-icons {
-      margin-top: 40px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      max-width: 320px;
-    }
-    .bottom-icons button {
-      background: #f5f5f5;
-      border: none;
-      font-size: 20px;
-      padding: 10px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      position: relative;
-      flex: 1 0 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background-color 0.3s ease;
-    }
-    .bottom-icons button:hover {
-      background-color: #ddd;
-    }
-    .tooltip {
-      position: absolute;
-      bottom: 130%;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: #fff;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-      user-select: none;
-    }
-    .bottom-icons button:hover .tooltip {
-      opacity: 1;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
   <script>
-    function openLink(url) {
-      window.open(url, '_blank');
-    }
     function openPanel(title, url) {
       window.location.href = url;
     }
@@ -122,26 +15,40 @@
   <header>
     <h1 class="logo">МаксМаркет</h1>
   </header>
-
   <main>
     <h2>📞 Контакты</h2>
-    <div class="contact-buttons">
-      <button class="whatsapp" onclick="openLink('https://wa.me/79376280080')">
-        <i class="fab fa-whatsapp"></i> WhatsApp +7 937 628-00-80
-      </button>
-      <button class="whatsapp" onclick="openLink('https://wa.me/89649626694')">
-        <i class="fab fa-whatsapp"></i> WhatsApp +7 964 962-66-94
-      </button>
-      <button class="telegram" onclick="openLink('https://t.me/internet_magazin_v_ingushetii')">
-        <i class="fab fa-telegram-plane"></i> Telegram @internet_magazin_v_ingushetii
-      </button>
-      <button class="telegram" onclick="openLink('https://t.me/magazin_maksaliny')">
-        <i class="fab fa-telegram-plane"></i> Telegram @magazin_maksaliny
-      </button>
-      <button class="instagram" onclick="openLink('https://instagram.com/posuda_i_tehnika_u_maksaliny')">
-        <i class="fab fa-instagram"></i> Instagram posuda_i_tehnika_u_maksaliny
-      </button>
-    </div>
+    <ul class="contact-list">
+      <li>
+        WhatsApp: 
+        <a href="https://wa.me/79376280080" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp">
+          +7 937 628-00-80
+        </a>
+      </li>
+      <li>
+        WhatsApp: 
+        <a href="https://wa.me/89649626694" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp">
+          +7 964 962-66-94
+        </a>
+      </li>
+      <li>
+        Telegram: 
+        <a href="https://t.me/internet_magazin_v_ingushetii" target="_blank" rel="noopener noreferrer" class="contact-link telegram">
+          @internet_magazin_v_ingushetii
+        </a>
+      </li>
+      <li>
+        Telegram: 
+        <a href="https://t.me/magazin_maksaliny" target="_blank" rel="noopener noreferrer" class="contact-link telegram">
+          @magazin_maksaliny
+        </a>
+      </li>
+      <li>
+        Instagram: 
+        <a href="https://instagram.com/posuda_i_tehnika_u_maksaliny" target="_blank" rel="noopener noreferrer" class="contact-link instagram">
+          posuda_i_tehnika_u_maksaliny
+        </a>
+      </li>
+    </ul>
   </main>
 
   <div class="bottom-icons">
