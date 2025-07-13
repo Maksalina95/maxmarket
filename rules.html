@@ -5,6 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Условия — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    main {
+      flex: 1;
+      padding: 20px;
+      background: #fff0f6;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #E0218A;
+      text-align: center;
+      margin: 24px 0 20px;
+      font-size: 26px;
+    }
+
+    .accordion {
+      margin-bottom: 12px;
+    }
+
+    .accordion button {
+      background-color: #E0218A;
+      color: white;
+      cursor: pointer;
+      padding: 14px 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      font-size: 17px;
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 0 0 8px #f0c1d8;
+    }
+
+    .accordion-content {
+      padding: 15px 20px;
+      background-color: #fff;
+      display: none;
+      border: 1px solid #f0c1d8;
+      border-radius: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+      box-shadow: 0 0 6px #ffd6ea;
+      margin-top: 6px;
+    }
+
+    .accordion-content p,
+    .accordion-content ul {
+      margin: 10px 0;
+    }
+
+    .accordion-content ul {
+      padding-left: 20px;
+    }
+
+    .accordion-content li {
+      margin-bottom: 6px;
+    }
+
+    footer {
+      margin: 32px 0 80px;
+      text-align: center;
+      font-size: 14px;
+      color: #a04a6d;
+    }
+
+    /* Нижнее меню */
+    .bottom-icons {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 0;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .bottom-icons button {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      position: relative;
+      color: #E0218A;
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #e63946;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      white-space: nowrap;
+      display: none;
+      z-index: 1001;
+    }
+
+    .bottom-icons button:hover .tooltip {
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      .accordion button {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      .accordion-content {
+        font-size: 14px;
+        padding: 14px;
+      }
+    }
+  </style>
   <script>
     function openPanel(title, url) {
       window.location.href = url;
@@ -15,90 +135,6 @@
       content.style.display = isOpen ? "none" : "block";
     }
   </script>
-  <style>
-    main {
-      flex: 1;
-      padding: 20px;
-      background: #fff;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1 {
-      color: #a63b3b;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .accordion {
-      margin-bottom: 15px;
-    }
-    .accordion button {
-      background-color: #a63b3b;
-      color: white;
-      cursor: pointer;
-      padding: 14px 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 17px;
-      border-radius: 8px;
-      margin-bottom: 5px;
-    }
-    .accordion-content {
-      padding: 15px;
-      background-color: #fff6f6;
-      display: none;
-      border: 1px solid #d3a1a1;
-      border-radius: 8px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .accordion-content p, .accordion-content ul {
-      margin: 10px 0;
-    }
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 14px;
-      color: #7a2929;
-    }
-    /* Нижнее меню */
-    .bottom-icons {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #fff0f0;
-      display: flex;
-      justify-content: space-around;
-      padding: 8px 0;
-      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-    .bottom-icons button {
-      background: none;
-      border: none;
-      font-size: 22px;
-      cursor: pointer;
-      position: relative;
-    }
-    .tooltip {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #a63b3b;
-      color: white;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      white-space: nowrap;
-      display: none;
-    }
-    .bottom-icons button:hover .tooltip {
-      display: block;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -108,6 +144,7 @@
   <main>
     <h1>📜 Условия договора купли-продажи</h1>
 
+    <!-- Каждый блок -->
     <div class="accordion">
       <button onclick="toggleAccordion(this)">📝 Общая информация</button>
       <div class="accordion-content">
@@ -120,38 +157,35 @@
     <div class="accordion">
       <button onclick="toggleAccordion(this)">📢 Оповещения</button>
       <div class="accordion-content">
-        <p>Продавец обязуется своевременно информировать Покупателей об изменениях через:</p>
+        <p>Продавец обязуется информировать Покупателей об изменениях через:</p>
         <ul>
           <li>группу «КОТЁЛ НА ВСЁ»</li>
           <li>статусы WhatsApp: +7 937 628-00-80 и +7 964 962-66-94</li>
           <li>официальные площадки</li>
         </ul>
-        <p>Новые условия не распространяются на договоры, заключённые до изменений.</p>
       </div>
     </div>
 
     <div class="accordion">
       <button onclick="toggleAccordion(this)">🧾 Принятие условий</button>
       <div class="accordion-content">
-        <p>Покупатель соглашается с настоящими условиями, для участия в котёл, предоставляя фото паспорта:</p>
+        <p>Покупатель соглашается с условиями, предоставляя фото паспорта:</p>
         <ul>
-          <li>первую страницу и страницу с пропиской</li>
-          <li>можно скрыть серию и номер, но лицо должно быть видно</li>
+          <li>Первая страница и прописка</li>
+          <li>Можно скрыть серию и номер, лицо должно быть видно</li>
         </ul>
-        <p>Без подтверждения — покупка в котёл невозможна.</p>
       </div>
     </div>
 
     <div class="accordion">
       <button onclick="toggleAccordion(this)">🛒 Оформление заказа</button>
       <div class="accordion-content">
-        <p>✅ Оформление заказа означает согласие:</p>
+        <p>✅ Оформление означает согласие:</p>
         <ul>
           <li>Оплатить товар и доставку</li>
           <li>Ознакомиться с описанием товара</li>
           <li>Проверить товар при получении</li>
         </ul>
-        <p>❗ При несогласии — пользоваться магазином запрещено.</p>
       </div>
     </div>
 
@@ -159,10 +193,9 @@
       <button onclick="toggleAccordion(this)">👤 Требования к участникам котла</button>
       <div class="accordion-content">
         <ul>
-          <li>Только женщины от 18 лет</li>
+          <li>Женщины от 18 лет</li>
           <li>Из Ингушетии или Дагестана</li>
-          <li>Если живёте за пределами, но есть родственники в Ингушетии — допускается</li>
-          <li>Разрешение от всех перед вступлением в котёл</li>
+          <li>Если живёте за пределами — допускается при наличии родни в ИНГ</li>
         </ul>
       </div>
     </div>
@@ -170,10 +203,10 @@
     <div class="accordion">
       <button onclick="toggleAccordion(this)">💳 Оплата и подтверждение</button>
       <div class="accordion-content">
-        <p>Оплата: на карту или наличными. После оплаты:</p>
+        <p>Оплата на карту или наличными. После оплаты:</p>
         <ul>
-          <li>Скинуть чек с полной информацией (дату, ФИО, сумму и т.д.)</li>
-          <li>Желательно подписывать: имя, город, номер оплаты, месяц</li>
+          <li>Отправить чек с датой, ФИО, суммой</li>
+          <li>Желательно подписывать: имя, город, месяц</li>
         </ul>
       </div>
     </div>
@@ -182,9 +215,9 @@
       <button onclick="toggleAccordion(this)">📦 Доставка</button>
       <div class="accordion-content">
         <ul>
-          <li>По Ингушетии — до 3 рабочих дней</li>
-          <li>За пределы — только при предоплате</li>
-          <li>Если доставка не удалась по вашей вине — оплачивается повторно</li>
+          <li>До 3 рабочих дней по Ингушетии</li>
+          <li>Предоплата обязательна для других регионов</li>
+          <li>Если доставка сорвана — повтор оплачивается клиентом</li>
         </ul>
       </div>
     </div>
@@ -192,10 +225,10 @@
     <div class="accordion">
       <button onclick="toggleAccordion(this)">🏬 Хранение и возврат</button>
       <div class="accordion-content">
-        <p>Срок хранения — 1 неделя. По истечении:</p>
+        <p>Хранение — 1 неделя:</p>
         <ul>
-          <li>Возврат с вычетом 20% (для котла) или 10% (наличные)</li>
-          <li>При отказе — удержание 30% от суммы</li>
+          <li>Возврат: -20% (котёл) / -10% (наличные)</li>
+          <li>Отказ — удержание 30%</li>
         </ul>
       </div>
     </div>
@@ -204,20 +237,18 @@
       <button onclick="toggleAccordion(this)">🚫 Возврат</button>
       <div class="accordion-content">
         <ul>
-          <li>Возврат товара надлежащего качества — невозможен</li>
-          <li>Возврат ненадлежащего — при экспертизе и упаковке</li>
+          <li>Надлежащее качество — не возвращается</li>
+          <li>Ненадлежащее — только при экспертизе</li>
         </ul>
       </div>
     </div>
 
     <div class="accordion">
-      <button onclick="toggleAccordion(this)">🛠 Условия возврата и гарантийные обязательства</button>
+      <button onclick="toggleAccordion(this)">🛠 Гарантии</button>
       <div class="accordion-content">
-        <p>Если выявлен производственный брак:</p>
         <ul>
-          <li>Покупатель имеет право на возврат, обмен или ремонт товара согласно закону.</li>
-          <li>Для подтверждения брака возможна экспертиза, расходы которой оплачивает продавец при подтверждении.</li>
-          <li>Возврат/обмен не производится при повреждениях по вине покупателя.</li>
+          <li>Возврат/обмен при браке</li>
+          <li>Экспертиза — за счёт продавца, если подтвердится</li>
         </ul>
       </div>
     </div>
@@ -225,23 +256,21 @@
     <div class="accordion">
       <button onclick="toggleAccordion(this)">🧾 Конфиденциальность</button>
       <div class="accordion-content">
-        <p>Личные данные не передаются третьим лицам без согласия.</p>
-        <p>Исключение — при долге более месяца.</p>
+        <p>Данные не передаются третьим лицам, кроме случаев задолженности более месяца.</p>
       </div>
     </div>
 
     <div class="accordion">
       <button onclick="toggleAccordion(this)">🚫 Запрещено</button>
       <div class="accordion-content">
-        <p>Запрещено контактировать с другими клиентами.</p>
-        <p>За нарушение — внесение в чёрный список Ингушетии.</p>
+        <p>Контакты между клиентами запрещены. За нарушение — блокировка.</p>
       </div>
     </div>
 
     <div class="accordion">
-      <button onclick="toggleAccordion(this)">⚖ Урегулирование споров</button>
+      <button onclick="toggleAccordion(this)">⚖ Споры</button>
       <div class="accordion-content">
-        <p>Споры решаются путём переговоров или через шариатский суд/имамов.</p>
+        <p>Решение споров: переговорами, через имамов или шариатский суд.</p>
       </div>
     </div>
 
@@ -251,7 +280,7 @@
     </footer>
   </main>
 
-  <div class="bottom-icons" role="navigation" aria-label="Основное меню">
+  <div class="bottom-icons" role="navigation" aria-label="Меню">
     <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒<span class="tooltip">Каталог</span></button>
     <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞<span class="tooltip">Контакты</span></button>
     <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖<span class="tooltip">Доставка</span></button>
