@@ -205,7 +205,7 @@ h2 {
   background: #fff;
   border: none;
   color: #e63946;
-  font-size: 28px; /* чуть больше иконки */
+  font-size: 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -242,7 +242,7 @@ h2 {
 .bottom-icons button:focus .tooltip,
 .bottom-icons button:active .tooltip {
   opacity: 1;
-  transform: translateX(-50%) translateY(0); /* плавно вверх */
+  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 
@@ -256,6 +256,25 @@ h2 {
   border-width: 5px;
   border-style: solid;
   border-color: #e63946 transparent transparent transparent;
+}
+
+/* Кнопка Установить */
+.install-button {
+  background-color: #fff;
+  border: 2px solid #fff5fa;
+  color: #fff5fa;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.install-button:hover {
+  background-color: #fff5fa;
+  color: #E0218A;
 }
 
 /* Адаптив: уменьшим иконки на маленьких экранах */
