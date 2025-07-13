@@ -223,7 +223,9 @@ h2 {
 /* Тултип */
 .tooltip {
   position: absolute;
-  bottom: 38px; /* чуть выше иконки */
+  bottom: 38px;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
   background: #e63946;
   color: white;
   padding: 3px 8px;
@@ -232,8 +234,7 @@ h2 {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease-in-out;
-  user-select: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: 1001;
 }
 
@@ -241,10 +242,11 @@ h2 {
 .bottom-icons button:focus .tooltip,
 .bottom-icons button:active .tooltip {
   opacity: 1;
+  transform: translateX(-50%) translateY(0); /* плавно вверх */
   pointer-events: auto;
 }
 
-/* Стрелочка под тултипом */
+/* Стрелочка */
 .tooltip::after {
   content: "";
   position: absolute;
