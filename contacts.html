@@ -2,34 +2,40 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Контакты — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
+  <script>
+    function openPanel(title, url) {
+      window.location.href = url;
+    }
+  </script>
 </head>
 <body>
   <header>
-    <h1 class="logo">МАКС Маркет</h1>
-    <button class="burger-menu" id="burgerBtn">☰</button>
+    <h1 class="logo">МаксМаркет</h1>
   </header>
 
-  <nav id="menu" class="hidden">
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="catalog.html">Каталог</a></li>
-      <li><a href="favorites.html">Избранное</a></li>
-      <li><a href="delivery.html">Доставка</a></li>
-      <li><a href="rules.html">Условия</a></li>
-      <li><a href="adress.html">Адрес</a></li>
-    </ul>
-  </nav>
-
   <main>
-    <h2>Контактная информация</h2>
-    <p>WhatsApp: <a href="https://wa.me/89376280080">89376280080</a></p>
-    <p>Instagram: <a href="#">@maksmarket</a></p>
-    <p>Email: example@mail.ru</p>
+    <h2>📞 Контакты</h2>
+    <ul class="contact-list">
+      <li>WhatsApp: <a href="https://wa.me/79376280080">+7 937 628-00-80</a></li>
+      <li>WhatsApp: <a href="https://wa.me/89649626694">+7 964 962-66-94</a></li>
+      <li>Telegram: <a href="https://t.me/internet_magazin_v_ingushetii">@internet_magazin_v_ingushetii</a></li>
+      <li>Telegram: <a href="https://t.me/magazin_maksaliny">@magazin_maksaliny</a></li>
+      <li>Instagram: <a href="https://instagram.com/posuda_i_tehnika_u_maksaliny">posuda_i_tehnika_u_maksaliny</a></li>
+    </ul>
   </main>
 
-  <script src="scripts/menu.js"></script>
+  <div class="bottom-icons">
+    <button onclick="openPanel('Каталог', 'catalog.html')">🛒<span class="tooltip">Каталог</span></button>
+    <button onclick="openPanel('Контакты', 'contacts.html')">📞<span class="tooltip">Контакты</span></button>
+    <button onclick="openPanel('Доставка', 'delivery.html')">🚖<span class="tooltip">Доставка</span></button>
+    <button onclick="openPanel('Избранное', 'favorites.html')">❤️<span class="tooltip">Избранное</span></button>
+    <button onclick="openPanel('Адрес', 'adress.html')">📍<span class="tooltip">Адрес</span></button>
+    <button onclick="openPanel('Условия', 'rules.html')">📝<span class="tooltip">Условия</span></button>
+    <button onclick="openPanel('Отзывы', 'reviews.html')">🏆<span class="tooltip">Отзывы</span></button>
+    <button onclick="location.reload()">🔄<span class="tooltip">Обновить</span></button>
+  </div>
 </body>
 </html>
