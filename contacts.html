@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Контакты — МаксМаркет</title>
+  <title>МаксМаркет — Связь с нами</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      font-family: sans-serif;
+    }
+
     main {
       padding: 20px;
     }
@@ -102,27 +106,27 @@
   </header>
 
   <main>
-    <h2>📞 Контакты</h2>
+    <h2>📞 Связь с нами</h2>
     <ul class="contact-list">
-      <li>WhatsApp 1: <a href="https://wa.me/79376280080?text=Здравствуйте! Хочу сделать заказ.">+7 937 628-00-80</a></li>
-      <li>WhatsApp 2: <a href="https://wa.me/89649626694?text=Здравствуйте! Интересует товар.">+7 964 962-66-94</a></li>
+      <li>WhatsApp: <a href="https://wa.me/79376280080?text=Здравствуйте! Хочу сделать заказ.">+7 937 628-00-80</a></li>
+      <li>WhatsApp: <a href="https://wa.me/89649626694?text=Здравствуйте! Интересует товар.">+7 964 962-66-94</a></li>
       <li>Telegram: <a href="https://t.me/internet_magazin_v_ingushetii">@internet_magazin_v_ingushetii</a></li>
       <li>Telegram: <a href="https://t.me/magazin_maksaliny">@magazin_maksaliny</a></li>
       <li>Instagram: <a href="https://instagram.com/posuda_i_tehnika_u_maksaliny">@posuda_i_tehnika_u_maksaliny</a></li>
     </ul>
 
     <div class="question-buttons">
-      <h3>💬 Быстрые вопросы для WhatsApp:</h3>
-      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Хотела бы заказать товар.')">Хочу заказать товар</button>
-      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Сколько стоит доставка?')">Сколько стоит доставка?</button>
-      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Какой способ оплаты?')">Какой способ оплаты?</button>
-      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Интересует наличие товара.')">Есть ли в наличии?</button>
+      <h3>💬 Быстрые сообщения в WhatsApp:</h3>
+      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Хотела бы заказать товар.')">🟢 Хочу заказать товар</button>
+      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Сколько стоит доставка?')">🚚 Сколько стоит доставка?</button>
+      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Какой способ оплаты?')">💳 Какой способ оплаты?</button>
+      <button onclick="sendWhatsAppMessage('79376280080', 'Здравствуйте! Есть ли в наличии такой товар?')">📦 Есть ли в наличии?</button>
     </div>
   </main>
 
   <div class="bottom-icons">
     <button onclick="openPanel('Каталог', 'catalog.html')">🛒<span class="tooltip">Каталог</span></button>
-    <button onclick="openPanel('Контакты', 'contacts.html')">📞<span class="tooltip">Контакты</span></button>
+    <button onclick="openPanel('Контакты', 'contacts.html')">📞<span class="tooltip">Связь</span></button>
     <button onclick="openPanel('Доставка', 'delivery.html')">🚖<span class="tooltip">Доставка</span></button>
     <button onclick="openPanel('Избранное', 'favorites.html')">❤️<span class="tooltip">Избранное</span></button>
     <button onclick="openPanel('Адрес', 'adress.html')">📍<span class="tooltip">Адрес</span></button>
