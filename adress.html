@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Адрес — МаксМаркет</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function openPanel(title, url) {
+      window.location.href = url;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1 class="logo">МаксМаркет</h1>
+  </header>
+
+  <main>
+    <h2>📍 Адрес</h2>
+    <div class="address-box">
+      <p><strong>Ранее:</strong> ТЦ «Адамо», 2 этаж, №21.</p>
+      <p><strong>Сейчас:</strong> Работаем онлайн, без торговой точки.</p>
+      <p>💬 Заказы принимаем с заботой и вниманием 🌷</p>
+    </div>
+  </main>
+
+  <div class="bottom-icons">
+    <!-- то же нижнее меню -->
+    <button onclick="openPanel('Каталог', 'catalog.html')">🛒<span class="tooltip">Каталог</span></button>
+    <button onclick="openPanel('Контакты', 'contacts.html')">📞<span class="tooltip">Контакты</span></button>
+    <button onclick="openPanel('Доставка', 'delivery.html')">🚖<span class="tooltip">Доставка</span></button>
+    <button onclick="openPanel('Избранное', 'favorites.html')">❤️<span class="tooltip">Избранное</span></button>
+    <button onclick="openPanel('Адрес', 'adress.html')">📍<span class="tooltip">Адрес</span></button>
+    <button onclick="openPanel('Условия', 'rules.html')">📝<span class="tooltip">Условия</span></button>
+    <button onclick="openPanel('Отзывы', 'reviews.html')">🏆<span class="tooltip">Отзывы</span></button>
+    <button onclick="location.reload()">🔄<span class="tooltip">Обновить</span></button>
+  </div>
+</body>
+</html>
