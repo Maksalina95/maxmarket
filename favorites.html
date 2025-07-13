@@ -2,40 +2,28 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Избранное — МаксМаркет</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>⭐ Избранное — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icons/icon-192.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap" rel="stylesheet" />
+  <script>
+    function openPanel(title, url) {
+      window.location.href = url;
+    }
+  </script>
 </head>
-<body onload="renderFavoritesPage(document.getElementById('productList'))">
+<body>
   <header>
     <h1 class="logo">МаксМаркет</h1>
-    <button class="burger-menu" id="burgerBtn">☰</button>
   </header>
 
-  <!-- Меню -->
-  <nav id="menu" class="hidden">
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="catalog.html">Каталог</a></li>
-      <li><a href="favorites.html">Избранное</a></li>
-      <li><a href="delivery.html">Доставка</a></li>
-      <li><a href="contacts.html">Контакты</a></li>
-      <li><a href="rules.html">Условия</a></li>
-      <li><a href="adress.html">Адрес</a></li>
-      <li><a href="#" onclick="location.reload()">🔄 Обновить</a></li>
-    </ul>
-  </nav>
-
   <main>
-    <h2>Избранные товары</h2>
-    <div id="productList" class="product-list"></div>
+    <h2>⭐ Избранное</h2>
+    <div id="favorites-list">Загрузка избранного...</div>
   </main>
 
-  <script src="scripts/config.js"></script>
-  <script src="scripts/favorites.js"></script>
-  <script src="scripts/menu.js"></script>
-</body>
-</html>
+  <div class="bottom-icons" role="navigation" aria-label="Основное меню">
+    <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒<span class="tooltip">Каталог</span></button>
+    <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞<span class="tooltip">Контакты</span></button>
+    <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖<span class="tooltip">Доставка</span></button>
+    <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">❤️<span class="tooltip">Избранное</span></button>
+    <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍<span class="tooltip
