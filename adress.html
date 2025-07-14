@@ -6,88 +6,15 @@
   <title>Адрес — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap');
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff0f6;
-      color: #4B004B;
-    }
-
-    /* Компактная шапка */
-    .simple-header {
-      background-color: #E0218A;
-      padding: 6px 16px;
-      text-align: center;
-    }
-
+    /* Мини-добавка: логотип компактно */
     .simple-header .logo {
-      font-family: 'Lobster', cursive;
-      font-size: 24px;
-      color: #fff5fa;
+      font-size: 22px;
       margin: 0;
       line-height: 1.2;
     }
 
-    /* Адресный блок */
-    .address-box {
-      background-color: #fff5fa;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 10px #ffd6eb;
-      max-width: 700px;
-      margin: 24px auto;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #4B004B;
-    }
-
-    .address-box strong {
-      color: #E0218A;
-    }
-
-    .address-box p {
-      margin-bottom: 12px;
-    }
-
-    /* Нижнее меню (если ты используешь свои стили — они подхватятся из style.css) */
-    .bottom-icons {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      display: flex;
-      justify-content: space-around;
-      padding: 8px 0;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    .bottom-icons button {
-      background: none;
-      border: none;
-      color: #e63946;
-      font-size: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .tooltip {
-      font-size: 12px;
-      color: #e63946;
-    }
-
-    @media (max-width: 600px) {
-      .address-box {
-        padding: 16px;
-        font-size: 15px;
-      }
+    h2 {
+      margin-top: 12px;
     }
   </style>
   <script>
@@ -97,12 +24,13 @@
   </script>
 </head>
 <body>
+
   <!-- Шапка -->
   <header class="simple-header">
     <h1 class="logo">МаксМаркет</h1>
   </header>
 
-  <!-- Контент -->
+  <!-- Основной контент -->
   <main>
     <h2>📍 Адрес</h2>
     <div class="address-box">
@@ -123,5 +51,6 @@
     <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆<span class="tooltip">Отзывы</span></button>
     <button onclick="location.reload()" aria-label="Обновить">🔄<span class="tooltip">Обновить</span></button>
   </div>
+
 </body>
 </html>
