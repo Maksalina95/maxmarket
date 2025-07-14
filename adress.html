@@ -26,6 +26,14 @@
       margin-bottom: 12px;
     }
 
+    .exit-button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
     @media (max-width: 600px) {
       .address-box {
         padding: 16px;
@@ -40,8 +48,9 @@
   </script>
 </head>
 <body>
-  <header>
-    <h1 class="logo">МаксМаркет</h1>
+  <header style="background-color: #E0218A; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+    <h1 class="logo" style="color: white;">МаксМаркет</h1>
+    <button class="exit-button" onclick="window.location.href='index.html'" aria-label="Назад">❌</button>
   </header>
 
   <main>
