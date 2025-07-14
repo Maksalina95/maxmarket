@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap');
+б@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap');
 
 /* Глобальные стили */
 html, body {
@@ -30,15 +30,6 @@ header {
   color: #fff5fa;
   letter-spacing: 1px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-}
-
-/* Кнопка ❌ справа в хедере */
-.exit-button {
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
 }
 
 /* Поиск */
