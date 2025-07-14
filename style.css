@@ -32,6 +32,19 @@ header {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
+/* Кнопка ❌ справа в хедере */
+.exit-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* Поиск */
 .search-bar {
   width: 100%;
