@@ -6,56 +6,49 @@
   <title>Адрес — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Подключаем шрифты Poppins и Lobster из Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap');
 
-    /* Контейнер с адресом */
     .address-box {
-      background-color: #fff5fa; /* светло-розовый фон */
+      background-color: #fff5fa;
       padding: 20px;
       border-radius: 16px;
-      box-shadow: 0 0 10px #ffd6eb; /* легкая тень */
+      box-shadow: 0 0 10px #ffd6eb;
       max-width: 700px;
-      margin: 24px auto; /* центрирование */
+      margin: 24px auto;
       font-size: 16px;
       line-height: 1.6;
-      color: #4B004B; /* темно-фиолетовый цвет текста */
+      color: #4B004B;
     }
 
-    /* Жирный текст внутри адреса выделен розовым */
     .address-box strong {
       color: #E0218A;
     }
 
-    /* Отступы у параграфов адреса */
     .address-box p {
       margin-bottom: 12px;
     }
 
-    /* Логотип: шрифт Lobster, белый цвет, тень */
     .logo {
       font-family: 'Lobster', cursive;
       font-size: 24px;
       color: #fff5fa;
       letter-spacing: 1px;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-      margin: 0; /* убираем отступы */
+      margin: 0;
     }
 
-    /* Кнопка выхода (крестик) */
-    .exit-button {
-      background: none; /* без фона */
-      border: none;     /* без рамки */
-      font-size: 28px;  /* размер шрифта */
-      color: white;     /* цвет белый */
-      cursor: pointer;  /* курсор при наведении */
-      position: absolute; /* абсолютное позиционирование */
-      right: 16px;      /* отступ справа */
-      top: 50%;         /* по вертикали центр */
-      transform: translateY(-50%); /* центрирование по высоте */
+    .close-panel {
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
-    /* Адаптив: уменьшаем размер шрифта в адресе на узких экранах */
     @media (max-width: 600px) {
       .address-box {
         padding: 16px;
@@ -64,20 +57,20 @@
     }
   </style>
   <script>
-    // Функция для перехода по ссылке (используется внизу)
     function openPanel(title, url) {
       window.location.href = url;
     }
   </script>
 </head>
 <body>
-  <!-- Шапка сайта -->
+  <!-- Шапка -->
   <header style="background-color: #E0218A; position: relative; padding: 10px 20px;">
-    <!-- Логотип -->
     <h1 class="logo">МаксМаркет</h1>
+    <!-- Чёрная кнопка ✕ -->
+    <button class="close-panel" onclick="window.location.href='index.html'" aria-label="Закрыть">✕</button>
   </header>
 
-  <!-- Основной контент -->
+  <!-- Контент -->
   <main>
     <h2>📍 Адрес</h2>
     <div class="address-box">
@@ -87,7 +80,7 @@
     </div>
   </main>
 
-  <!-- Нижняя навигация с иконками -->
+  <!-- Меню -->
   <div class="bottom-icons" role="navigation" aria-label="Меню">
     <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒<span class="tooltip">Каталог</span></button>
     <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞<span class="tooltip">Контакты</span></button>
