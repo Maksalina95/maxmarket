@@ -80,22 +80,6 @@ header {
   background-color: #C01578;
 }
 
-/* ✕ внутри поля */
-#clearSearch {
-  position: absolute;
-  right: 110px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: #E0218A;
-  cursor: pointer;
-  display: none;
-  font-weight: bold;
-  background: transparent;
-  border: none;
-  line-height: 1;
-  user-select: none;
-}
 
 #clearSearch:hover {
   background-color: #ffe0f2;
@@ -278,29 +262,27 @@ h2 {
   color: #E0218A;
 }
 
-/* Кнопка закрытия ✖ */
 .always-close-button {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background-color: white;
+  top: 15px;
+  right: 15px;
+  background-color: #ffffff;
   color: #E0218A;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  border: 1.5px solid #E0218A;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
   font-size: 20px;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   z-index: 2000;
 }
 
 .always-close-button:hover {
-  background-color: #ffe3f1;
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(224, 33, 138, 0.4);
+  background-color: #fff0f6;
+  color: #C01578;
+  box-shadow: 0 4px 12px rgba(224, 33, 138, 0.3);
 }
 
 /* Панель */
