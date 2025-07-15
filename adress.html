@@ -2,343 +2,50 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>МаксМаркет</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Адрес — МаксМаркет</title>
+
+  <!-- Основные стили -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icons/icon-192.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap" rel="stylesheet" />
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      overscroll-behavior: none;
-      scroll-behavior: smooth;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff0f6;
-      color: #4B004B;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 15px 20px;
-      background-color: #E0218A;
-      position: relative;
-      z-index: 500;
-      color: white;
-    }
-
-    header .logo {
-      margin: 0 auto;
-      font-family: 'Lobster', cursive;
-      font-size: 28px;
-      font-weight: 700;
-      color: #fff5fa;
-    }
-
-    .always-close-button {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background-color: white;
-      color: #E0218A;
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      font-size: 20px;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-      z-index: 2000;
-    }
-
-    .always-close-button:hover {
-      background-color: #ffe3f1;
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(224, 33, 138, 0.4);
-    }
-
-    .bottom-icons {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      display: flex;
-      justify-content: space-around;
-      padding: 8px 0;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    .bottom-icons button {
-      background: #fff;
-      border: none;
-      color: #e63946;
-      font-size: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .bottom-icons button:hover {
-      color: #c62d3b;
-    }
-
-    .full-panel {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #fff;
-      z-index: 1500;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 40px 20px;
-      box-sizing: border-box;
-      animation: fadeIn 0.3s ease;
-      overflow-y: auto;
-    }
-
-    .full-panel.active {
-      display: flex;
-    }
-
-    .full-panel h2 {
-      font-size: 26px;
-      color: #e63946;
-      margin-bottom: 20px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .search-bar {
-      padding: 16px;
-      background-color: #fff5fa;
-      box-shadow: 0 0 8px #f0c1d8;
-      box-sizing: border-box;
-      display: flex;
-      justify-content: center;
-    }
-
-    .search-form {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .search-form input {
-      flex: 1;
-      padding: 12px 40px 12px 16px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      outline: none;
-      box-sizing: border-box;
-    }
-
-    .search-form button {
-      padding: 12px 18px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      background-color: #E0218A;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    #clearSearch {
-      position: absolute;
-      right: 110px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
-      color: #E0218A;
-      cursor: pointer;
-      display: none;
-      font-weight: bold;
-      background: transparent;
-      border: none;
-      padding: 0;
-      line-height: 1;
-      user-select: none;
-    }
-
-    .slider {
-      padding: 20px;
-      background: #fefefe;
-    }
-
-    main {
-      padding: 0 16px 100px;
-      max-width: 900px;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
-
-    .product-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 16px;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #ffe0f2;
-      padding: 16px;
-      position: relative;
-    }
-
-    .product-card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .product-card h3 {
-      margin: 12px 0 8px;
-      font-size: 18px;
-      color: #4B004B;
-    }
-
-    .product-card p {
-      margin: 4px 0;
-      font-size: 14px;
-      color: #6a2a6c;
-    }
-  </style>
+  <!-- Стили кнопки ✕ -->
+  <link rel="stylesheet" href="close-button.css" />
 </head>
 <body>
-  <header>
+
+  <!-- Шапка с кнопкой ✕ -->
+  <header class="simple-header">
     <h1 class="logo">МаксМаркет</h1>
-    <button class="always-close-button" onclick="location.href='index.html'" aria-label="На главную">✖</button>
-    <button id="installApp" class="install-button" style="display:none;">📲 Установить</button>
+    <button class="close-button" onclick="goHome()" aria-label="Закрыть">✕</button>
   </header>
 
-  <div class="full-panel" id="panel">
-    <!-- старая кнопка ✖ удалена -->
-    <h2 id="panelTitle"></h2>
-    <div id="panelContent">Загрузка...</div>
-  </div>
-
-  <div class="search-bar">
-    <form class="search-form" onsubmit="return false;">
-      <input type="text" id="searchInput" placeholder="Найти на МаксМаркет" />
-      <span id="clearSearch">✕</span>
-      <button type="submit" id="applySearchBtn">Поиск</button>
-    </form>
-  </div>
-
-  <section class="slider">
-    <div class="slide active">🌸 Добро пожаловать в Магазин Максалины!</div>
-    <div class="slide">📢 Здесь могла бы быть ваша РЕКЛАМА</div>
-  </section>
-
+  <!-- Основной контент -->
   <main>
-    <h2>Новинки</h2>
-    <ul id="suggestions"></ul>
-    <div id="productList" class="product-list">
-      <div class="product-card"></div>
+    <h2>📍 Адрес</h2>
+    <div class="address-box">
+      <p><strong>Ранее:</strong> ТЦ «Адамо», 2 этаж, №21.</p>
+      <p><strong>Сейчас:</strong> Работаем <u>онлайн</u>, без торговой точки.</p>
+      <p>💬 Заказы принимаем с заботой и вниманием 🌷</p>
     </div>
   </main>
 
-  <div class="bottom-icons" role="navigation" aria-label="Основное меню">
-    <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒</button>
-    <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞</button>
-    <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖</button>
-    <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">❤️</button>
-    <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍</button>
-    <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">📝</button>
-    <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆</button>
-    <button onclick="location.reload()" aria-label="Обновить страницу">🔄</button>
+  <!-- Меню -->
+  <div class="bottom-icons" role="navigation" aria-label="Меню">
+    <button onclick="openPanel('Каталог', 'catalog.html')" aria-label="Каталог">🛒<span class="tooltip">Каталог</span></button>
+    <button onclick="openPanel('Контакты', 'contacts.html')" aria-label="Контакты">📞<span class="tooltip">Контакты</span></button>
+    <button onclick="openPanel('Доставка', 'delivery.html')" aria-label="Доставка">🚖<span class="tooltip">Доставка</span></button>
+    <button onclick="openPanel('Избранное', 'favorites.html')" aria-label="Избранное">❤️<span class="tooltip">Избранное</span></button>
+    <button onclick="openPanel('Адрес', 'adress.html')" aria-label="Адрес">📍<span class="tooltip">Адрес</span></button>
+    <button onclick="openPanel('Условия', 'rules.html')" aria-label="Условия">📝<span class="tooltip">Условия</span></button>
+    <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆<span class="tooltip">Отзывы</span></button>
+    <button onclick="location.reload()" aria-label="Обновить">🔄<span class="tooltip">Обновить</span></button>
   </div>
 
+  <!-- Глобальный JavaScript -->
+  <script src="scripts/global.js"></script>
   <script>
     function openPanel(title, url) {
-      document.getElementById('panelTitle').innerText = title;
-      const content = document.getElementById('panelContent');
-      content.innerHTML = 'Загрузка...';
-      fetch(url)
-        .then(response => response.text())
-        .then(html => {
-          content.innerHTML = html;
-        })
-        .catch(() => {
-          content.innerHTML = '<p>Ошибка загрузки.</p>';
-        });
-      document.getElementById('panel').classList.add('active');
+      window.location.href = url;
     }
-
-    function closePanel() {
-      document.getElementById('panel').classList.remove('active');
-    }
-
-    const input = document.getElementById("searchInput");
-    const clearBtn = document.getElementById("clearSearch");
-    const searchBtn = document.getElementById("applySearchBtn");
-
-    input.addEventListener("input", () => {
-      clearBtn.style.display = input.value.trim() ? "inline" : "none";
-    });
-
-    clearBtn.addEventListener("click", () => {
-      input.value = "";
-      clearBtn.style.display = "none";
-      document.getElementById("productList").innerHTML = "";
-    });
-
-    searchBtn.addEventListener("click", () => {
-      const query = input.value.trim();
-      if (query !== "") {
-        performSearch(query);
-      }
-    });
-
-    function performSearch(query) {
-      const event = new CustomEvent("search", { detail: query });
-      window.dispatchEvent(event);
-    }
-
-    let deferredPrompt;
-    const installBtn = document.getElementById('installApp');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.style.display = 'inline-block';
-    });
-
-    installBtn.addEventListener('click', () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted install');
-          } else {
-            console.log('User dismissed install');
-          }
-          deferredPrompt = null;
-        });
-      }
-    });
   </script>
 </body>
 </html>
