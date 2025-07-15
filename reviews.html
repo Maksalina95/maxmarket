@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Отзывы — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="close-button.css" />
   <script>
     function openPanel(title, url) {
       window.location.href = url;
@@ -81,6 +82,7 @@
 <body>
   <header>
     <h1 class="logo">МаксМаркет</h1>
+    <button class="close-button" onclick="location.href='index.html'" aria-label="Закрыть">✕</button>
   </header>
 
   <main>
@@ -103,15 +105,17 @@
 
   <script>
     const gallery = document.getElementById('reviewsGallery');
-    const maxReviews = 50; // Сколько максимум загрузить
+    const maxReviews = 50;
 
     for (let i = 1; i <= maxReviews; i++) {
       const img = document.createElement('img');
       img.src = `images/reviews/review${i}.jpg`;
       img.alt = `Отзыв ${i}`;
-      img.onerror = () => img.remove(); // Удаляем, если файла нет
+      img.onerror = () => img.remove();
       gallery.appendChild(img);
     }
   </script>
+
+  <script src="scripts/global.js"></script>
 </body>
 </html>
