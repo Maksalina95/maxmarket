@@ -278,15 +278,29 @@ h2 {
   color: #E0218A;
 }
 
-/* Адаптив: уменьшим иконки на маленьких экранах */
-@media (max-width: 480px) {
-  .bottom-icons button {
-    font-size: 24px;
-  }
-  .tooltip {
-    font-size: 10px;
-    bottom: 32px;
-  }
+/* Кнопка закрытия ✖ */
+.always-close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: white;
+  color: #E0218A;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  z-index: 2000;
+}
+
+.always-close-button:hover {
+  background-color: #ffe3f1;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(224, 33, 138, 0.4);
 }
 
 /* Панель */
