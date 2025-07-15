@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Доставка — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="close-button.css" />
+  <script>
+    function openPanel(title, url) {
+      window.location.href = url;
+    }
+  </script>
   <style>
     .table-container {
       overflow-x: auto;
@@ -63,15 +69,11 @@
       }
     }
   </style>
-  <script>
-    function openPanel(title, url) {
-      window.location.href = url;
-    }
-  </script>
 </head>
 <body>
   <header>
     <h1 class="logo">МаксМаркет</h1>
+    <button class="close-button" onclick="location.href='index.html'" aria-label="Закрыть">✕</button>
   </header>
 
   <main>
@@ -137,5 +139,7 @@
     <button onclick="openPanel('Отзывы', 'reviews.html')" aria-label="Отзывы">🏆<span class="tooltip">Отзывы</span></button>
     <button onclick="location.reload()" aria-label="Обновить">🔄<span class="tooltip">Обновить</span></button>
   </div>
+
+  <script src="scripts/global.js"></script>
 </body>
 </html>
