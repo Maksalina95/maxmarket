@@ -16,6 +16,66 @@
     h2 {
       margin-top: 12px;
     }
+
+    /* Кнопка Назад */
+    header.simple-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 8px 16px;
+      background-color: #E0218A;
+      color: white;
+      z-index: 10;
+    }
+
+    .back-button {
+      position: absolute;
+      left: 16px;
+      background: white;
+      color: #E0218A;
+      border: none;
+      border-radius: 9999px;
+      padding: 8px 14px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(224, 33, 138, 0.4);
+      user-select: none;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .back-button:hover {
+      background-color: #ffe0f2;
+      color: #c01578;
+      box-shadow: 0 4px 12px rgba(192, 21, 120, 0.6);
+      transform: translateY(-3px);
+    }
+
+    .back-button:active {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(224, 33, 138, 0.4);
+    }
+
+    /* Анимация появления */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
   <script>
     function openPanel(title, url) {
@@ -27,6 +87,9 @@
 
   <!-- Шапка -->
   <header class="simple-header">
+    <button class="back-button" onclick="location.href='index.html'" aria-label="Назад на главную">
+      ← Назад
+    </button>
     <h1 class="logo">МаксМаркет</h1>
   </header>
 
