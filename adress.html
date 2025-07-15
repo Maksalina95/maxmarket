@@ -6,75 +6,43 @@
   <title>Адрес — МаксМаркет</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Мини-добавка: логотип компактно */
+    /* Стили для логотипа */
     .simple-header .logo {
       font-size: 22px;
-      margin: 0;
+      margin: 0 auto;
       line-height: 1.2;
+    }
+
+    /* Стили для крестика ✕ */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      background: white;
+      color: #E0218A;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(224, 33, 138, 0.4);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+    }
+
+    .close-button:hover {
+      background-color: #ffe0f2;
+      color: #C01578;
+      transform: rotate(90deg) scale(1.1);
     }
 
     h2 {
       margin-top: 12px;
-    }
-
-    /* Кнопка Назад */
-    header.simple-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 8px 16px;
-      background-color: #E0218A;
-      color: white;
-      z-index: 10;
-    }
-
-    .back-button {
-      position: absolute;
-      left: 16px;
-      background: white;
-      color: #E0218A;
-      border: none;
-      border-radius: 9999px;
-      padding: 8px 14px;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 2px 8px rgba(224, 33, 138, 0.4);
-      user-select: none;
-      transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        transform 0.2s ease,
-        box-shadow 0.3s ease;
-      animation: fadeInUp 0.5s ease forwards;
-    }
-
-    .back-button:hover {
-      background-color: #ffe0f2;
-      color: #c01578;
-      box-shadow: 0 4px 12px rgba(192, 21, 120, 0.6);
-      transform: translateY(-3px);
-    }
-
-    .back-button:active {
-      transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(224, 33, 138, 0.4);
-    }
-
-    /* Анимация появления */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   </style>
   <script>
@@ -86,11 +54,9 @@
 <body>
 
   <!-- Шапка -->
-  <header class="simple-header">
-    <button class="back-button" onclick="location.href='index.html'" aria-label="Назад на главную">
-      ← Назад
-    </button>
+  <header class="simple-header" style="position: relative;">
     <h1 class="logo">МаксМаркет</h1>
+    <button class="close-button" onclick="location.href='index.html'" aria-label="Закрыть">✕</button>
   </header>
 
   <!-- Основной контент -->
